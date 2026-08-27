@@ -15,7 +15,7 @@
 
 <header class="site"><div class="wrap">
   <a class="brand" href="../index.html"><i></i>William Otterson</a>
-  <nav><a class="on" href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a><a class="btn" href="../assets/WilliamOtterson_Resume.pdf">Resume</a></nav>
+  <nav><a class="on" href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="#" data-contact>Contact</a><a class="btn" href="../assets/WilliamOtterson_Resume.pdf" target="_blank" rel="noopener">Resume</a></nav>
 </div></header>
 
 <main class="wrap">
@@ -38,14 +38,14 @@
     <model-viewer src="../assets/models/ut-tower.glb" alt="3D model of the UT Tower ornament, reverse-engineered from the original blueprints" camera-controls auto-rotate auto-rotate-delay="1500" rotation-per-second="20deg" environment-image="neutral" shadow-intensity="1.2" shadow-softness="0.8" exposure="0.85" camera-orbit="35deg 78deg 88%" min-camera-orbit="auto auto 40%" max-camera-orbit="auto auto 200%" interaction-prompt="none" loading="eager">
       <div slot="poster" class="ph" style="height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:var(--muted)">loading 3D model (665 KB)</div>
     </model-viewer>
-    <span class="hint">34,010 triangles &middot; from tower3.stl &middot; <a href="../assets/models/ut-tower.stl" download>download STL</a></span>
+    <span class="hint"><a href="../assets/models/ut-tower.stl" download>download STL</a></span>
   </div>
   <figcaption style="margin-bottom:44px"><span class="fig-num">FIG 1</span><b>The SolidWorks model, in your browser.</b> Setbacks, window rhythm, the observation deck colonnade, and the clock faces are all in the geometry, which is why the printed part reads as the Tower from across a room.</figcaption>
 
   <div class="quad">
     <figure>
       <img src="../assets/img/tower-blueprint.jpg" alt="Original UT Main Building blueprint: north elevation of the tower with tier elevations annotated">
-      <figcaption><b>The source.</b> North elevation from the original Main Building and Library Extension drawings, 1/8 in = 1 ft.</figcaption>
+      <figcaption><b>The source.</b> North elevation from the original blueprints, 1/8 in = 1 ft.</figcaption>
     </figure>
     <figure>
       <img src="../assets/img/tower-clean.jpg" alt="The printed UT Tower model, unlit, on a desk">
@@ -114,5 +114,23 @@
   <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
 </div></footer>
 
+
+<dialog id="contact-dlg">
+  <h3>Contact</h3>
+  <p class="cd-row"><span>Email</span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a></p>
+  <p class="cd-row"><span>Phone</span><a href="tel:+18087405886">(808) 740 5886</a></p>
+  <p class="cd-row"><span>LinkedIn</span><a href="https://www.linkedin.com/in/williamwotterson" target="_blank" rel="noopener">in/williamwotterson</a></p>
+  <button id="contact-close" type="button">Close</button>
+</dialog>
+<script>
+(function(){
+  var d = document.getElementById('contact-dlg');
+  document.querySelectorAll('a[data-contact]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); d.showModal(); });
+  });
+  document.getElementById('contact-close').addEventListener('click', function(){ d.close(); });
+  d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+})();
+</script>
 </body>
 </html>

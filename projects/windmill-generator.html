@@ -15,7 +15,7 @@
 
 <header class="site"><div class="wrap">
   <a class="brand" href="../index.html"><i></i>William Otterson</a>
-  <nav><a class="on" href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a><a class="btn" href="../assets/WilliamOtterson_Resume.pdf">Resume</a></nav>
+  <nav><a class="on" href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="#" data-contact>Contact</a><a class="btn" href="../assets/WilliamOtterson_Resume.pdf" target="_blank" rel="noopener">Resume</a></nav>
 </div></header>
 
 <main class="wrap">
@@ -112,7 +112,6 @@
         <tr><th>Indicators</th><td>Two comparators against references from a bench 12 V supply (reference only); logic gates so only one of too slow, in range, too fast is lit; brightness LED driven from the DC bus</td></tr>
         <tr><th>Modeling</th><td>Multisim before build</td></tr>
         <tr><th>Data</th><td>Three fan speeds; <em>voltages to add</em></td></tr>
-        <tr><th>Assignment</th><td><a href="../assets/docs/ME140L_Windmill_Generator_Assignment.pdf">Project brief (PDF)</a></td></tr>
       </table>
     </div>
   </section>
@@ -129,5 +128,23 @@
   <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
 </div></footer>
 
+
+<dialog id="contact-dlg">
+  <h3>Contact</h3>
+  <p class="cd-row"><span>Email</span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a></p>
+  <p class="cd-row"><span>Phone</span><a href="tel:+18087405886">(808) 740 5886</a></p>
+  <p class="cd-row"><span>LinkedIn</span><a href="https://www.linkedin.com/in/williamwotterson" target="_blank" rel="noopener">in/williamwotterson</a></p>
+  <button id="contact-close" type="button">Close</button>
+</dialog>
+<script>
+(function(){
+  var d = document.getElementById('contact-dlg');
+  document.querySelectorAll('a[data-contact]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); d.showModal(); });
+  });
+  document.getElementById('contact-close').addEventListener('click', function(){ d.close(); });
+  d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+})();
+</script>
 </body>
 </html>

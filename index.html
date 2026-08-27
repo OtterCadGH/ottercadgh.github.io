@@ -14,7 +14,7 @@
 
 <header class="site"><div class="wrap">
   <a class="brand" href="index.html"><i></i>William Otterson</a>
-  <nav><a class="on" href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a><a class="btn" href="assets/WilliamOtterson_Resume.pdf">Resume</a></nav>
+  <nav><a class="on" href="#work">Work</a><a href="#about">About</a><a href="#" data-contact>Contact</a><a class="btn" href="assets/WilliamOtterson_Resume.pdf" target="_blank" rel="noopener">Resume</a></nav>
 </div></header>
 
 <main class="wrap">
@@ -24,10 +24,10 @@
       <div class="eyebrow">Mechanical engineer &middot; UT Austin '27 &middot; Austin, TX</div>
       <h1>Hardware that has to work.</h1>
       <p>I build test rigs, production fixtures, and small embedded devices, and I put a number on every claim. Medical device R&amp;D background at Smith+Nephew and International Biomedical.</p>
-      <div class="cta"><a class="p" href="#work">View projects</a><a class="s" href="assets/WilliamOtterson_Resume.pdf">Download resume</a></div>
+      <div class="cta"><a class="p" href="#work">View projects</a><a class="s" href="assets/WilliamOtterson_Resume.pdf" target="_blank" rel="noopener">Download resume</a></div>
       <div class="meta-row">
         <div>Focus<b>Test &amp; fixture design</b></div>
-        <div>Stack<b>SolidWorks &middot; KiCad &middot; ESP32 / C++</b></div>
+        <div>Stack<b>SolidWorks &middot; KiCad &middot; ESP32</b></div>
         <div>Status<b>Open to 2027 full-time</b></div>
       </div>
     </div>
@@ -36,12 +36,6 @@
       <a href="projects/press-fixture.html"><img src="assets/img/press-fixture.jpg" alt="Pneumatic lamination press on the bench with its all-pneumatic control box" style="object-position:center 58%"></a>
     </div>
   </section>
-
-  <div class="strip">
-    <div><b>7,500</b><span>plug/unplug cycles per receptacle, unattended</span></div>
-    <div><b>125 lb &middot; 10 s</b><span>press force and dwell, fixed in hardware</span></div>
-    <div><b>38 stars</b><span>open-hardware platform with a community that contributes firmware</span></div>
-  </div>
 
   <div class="sec" id="work"><h2>Selected work</h2><a href="#about">About me &rarr;</a></div>
   <div class="grid">
@@ -87,6 +81,7 @@
   <section class="two" id="about">
     <div>
       <h2>About</h2>
+      <img class="headshot" src="assets/img/headshot.jpg" alt="William Otterson" width="120" height="120">
       <p>Mechanical engineering student at UT Austin, graduating May 2027. Most of my work has been in medical device R&amp;D, where documenting everything and testing early became habit. I like problems that sit between mechanical, electrical, and software, and I tend to build the test rig before I trust the part.</p>
       <p>Outside of work I design and publish open hardware on <a href="https://github.com/OtterCadGH">GitHub</a> and <a href="https://www.youtube.com/@OtterCADyt">YouTube</a>. Open to full-time mechanical, test, and R&amp;D engineering roles starting 2027. US citizen.</p>
       <p><b>Tools:</b> SolidWorks (GD&amp;T to ASME Y14.5, surfacing, tolerance analysis, FEA), KiCad, Arduino and ESP32, Python, MATLAB, Lua, pneumatics, thermocouple and Hall-effect instrumentation, FDM and SLA printing, CNC, laser cutting, composite layups.</p>
@@ -109,5 +104,23 @@
   <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
 </div></footer>
 
+
+<dialog id="contact-dlg">
+  <h3>Contact</h3>
+  <p class="cd-row"><span>Email</span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a></p>
+  <p class="cd-row"><span>Phone</span><a href="tel:+18087405886">(808) 740 5886</a></p>
+  <p class="cd-row"><span>LinkedIn</span><a href="https://www.linkedin.com/in/williamwotterson" target="_blank" rel="noopener">in/williamwotterson</a></p>
+  <button id="contact-close" type="button">Close</button>
+</dialog>
+<script>
+(function(){
+  var d = document.getElementById('contact-dlg');
+  document.querySelectorAll('a[data-contact]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); d.showModal(); });
+  });
+  document.getElementById('contact-close').addEventListener('click', function(){ d.close(); });
+  d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+})();
+</script>
 </body>
 </html>

@@ -224,9 +224,19 @@ model-viewer { display: block; width: 100%; height: 640px; background: var(--pan
 .mv-wrap { position: relative; }
 .mv-wrap .hint { position: absolute; left: 14px; bottom: 12px; font-family: var(--mono); font-size: 11px; color: var(--muted); background: rgba(255,255,255,0.85); padding: 3px 6px; border-radius: 3px; pointer-events: none; }
 .mv-wrap .tag { position: absolute; right: 14px; top: 14px; font-family: var(--mono); font-size: 11px; background: var(--accent); color: var(--accent-ink); padding: 4px 8px; border-radius: 3px; }
-.tri, .quad { display: grid; gap: 16px; margin: 0 0 44px; align-items: start; }
+.headshot { float: right; width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 1px solid var(--rule); margin: 4px 0 12px 18px; }
+.tri, .quad { display: grid; gap: 16px; margin: 0 0 44px; align-items: end; }
 .tri { grid-template-columns: repeat(3, 1fr); }
 .quad { grid-template-columns: repeat(4, 1fr); }
 .tri figure, .quad figure { margin: 0; }
 .tri img, .quad img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 6px; }
 @media (max-width: 700px) { .tri, .quad { grid-template-columns: 1fr 1fr; } model-viewer { height: 380px; } }
+
+/* contact popup */
+#contact-dlg { border: 1px solid var(--rule); border-radius: 8px; padding: 26px 30px 22px; background: #fff; max-width: min(92vw, 380px); }
+#contact-dlg::backdrop { background: rgba(24,23,20,0.45); }
+#contact-dlg h3 { margin: 0 0 16px; font-size: 16px; }
+#contact-dlg .cd-row { display: flex; gap: 14px; margin: 0 0 10px; font-size: 14px; align-items: baseline; }
+#contact-dlg .cd-row span { font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 64px; text-transform: uppercase; letter-spacing: 0.04em; }
+#contact-dlg button { margin-top: 10px; font: inherit; font-size: 13px; padding: 6px 14px; border: 1px solid var(--rule); border-radius: 6px; background: transparent; cursor: pointer; color: inherit; }
+#contact-dlg button:hover { border-color: var(--accent); color: var(--accent); }
