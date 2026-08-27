@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pneumatic lamination press - William Otterson</title>
+<meta name="description" content="Production-intent pneumatic press with a self-resetting air timer, applying 125 lb for 10 s to bond touchscreen, membrane, and bezel assemblies within 0.05 in.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><i></i>William Otterson</a>
+  <nav><a class="on" href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a><a class="btn" href="../assets/WilliamOtterson_Resume.pdf">Resume</a></nav>
+</div></header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="eyebrow">Smith+Nephew &middot; R&amp;D Engineer Co-op &middot; 2025</div>
+    <h1>A production press with two setpoints and no electronics</h1>
+    <p class="lede">A production-intent fixture that bonds a touchscreen, LED membrane, and cosmetic bezel at a controlled 125 lb for exactly 10 seconds, locates the bezel to &plusmn;0.05 in, and has nothing electrical for the line to validate.</p>
+  </div>
+
+  <div class="glance">
+    <div><span class="k">Outcome</span><b>Validated force profile and adhesive performance</b>; full drawings and BOMs handed off for adoption on the production assembly line</div>
+    <div><span class="k">My role</span>Designer: mechanism, pneumatic control, nest surfacing, drawing package, qualification plan</div>
+    <div><span class="k">Constraints</span>Adhesive spec of 125 lb for 10 s; cosmetic curved bezel to locate; must be line-ownable with no software</div>
+    <div><span class="k">Skills</span>SolidWorks surfacing, pneumatic logic, fixture design, DFM, drawings and BOMs</div>
+  </div>
+
+  <div class="split" style="align-items:stretch">
+    <figure>
+      <img src="../assets/img/press-fixture.jpg" alt="The pneumatic lamination press on the bench: aluminum extrusion frame, guided pneumatic cylinder with a compliant press foot, a white 3D-printed nest holding the bezel, and the separate pneumatic control box with regulator, start button, and Festo timer">
+      <figcaption><span class="fig-num">FIG 1</span><b>The press and its control box.</b> Guided cylinder on an extrusion frame, printed nest below, and the all-pneumatic control box on the right: regulator gauge, air inlet, start button, and the self-resetting timer.</figcaption>
+    </figure>
+    <figure>
+      <video controls muted playsinline preload="metadata" poster="../assets/video/press-fixture-demo-poster.jpg" src="../assets/video/press-fixture-demo.mp4"></video>
+      <figcaption><span class="fig-num">FIG 2</span><b>One cycle, 7 seconds.</b> Load, trigger, timed dwell, automatic vent and reset. No electronics in the loop. <a href="../assets/video/press-fixture-demo-2.mp4">Second angle</a>.</figcaption>
+    </figure>
+  </div>
+
+  <figure class="hero-fig">
+    <svg viewBox="0 0 820 250" role="img" aria-label="Pneumatic circuit: shop air passes through a filter and regulator set for 125 lb, then a start valve, then a self-resetting pneumatic timer that holds the press cylinder extended for 10 seconds before venting; the cylinder drives a platen down onto a surface-modeled nest holding the bezel, membrane, and touchscreen.">
+      <rect x="20" y="80" width="90" height="50" class="box" rx="3"/>
+      <text x="65" y="110" text-anchor="middle">Shop air</text>
+      <rect x="140" y="70" width="120" height="70" class="box" rx="3"/>
+      <text x="200" y="96" text-anchor="middle">Filter +</text>
+      <text x="200" y="112" text-anchor="middle">regulator</text>
+      <text x="200" y="128" text-anchor="middle" class="lab">set for 125 lb</text>
+      <line x1="110" y1="105" x2="140" y2="105" class="air"/>
+      <rect x="290" y="80" width="100" height="50" class="box" rx="3"/>
+      <text x="340" y="102" text-anchor="middle">Start valve</text>
+      <text x="340" y="118" text-anchor="middle" class="lab">operator</text>
+      <line x1="260" y1="105" x2="290" y2="105" class="air"/>
+      <rect x="420" y="60" width="130" height="90" class="box acc" rx="3"/>
+      <text x="485" y="88" text-anchor="middle">Pneumatic timer</text>
+      <text x="485" y="106" text-anchor="middle" class="lab">self-resetting</text>
+      <text x="485" y="122" text-anchor="middle" class="lab">10 s dwell, then vent</text>
+      <line x1="390" y1="105" x2="420" y2="105" class="air"/>
+      <rect x="600" y="30" width="100" height="60" class="box" rx="3"/>
+      <text x="650" y="55" text-anchor="middle">Cylinder</text>
+      <text x="650" y="71" text-anchor="middle" class="lab">press force</text>
+      <line x1="550" y1="105" x2="575" y2="105" class="air"/>
+      <polyline points="575,105 575,60 600,60" class="air"/>
+      <rect x="600" y="115" width="100" height="26" class="box" rx="2"/>
+      <text x="650" y="132" text-anchor="middle" class="lab">platen</text>
+      <line x1="650" y1="90" x2="650" y2="115" class="ln"/>
+      <rect x="590" y="160" width="120" height="14" class="box" rx="1"/>
+      <text x="720" y="171" class="lab">bezel</text>
+      <rect x="595" y="176" width="110" height="10" class="box" rx="1"/>
+      <text x="720" y="185" class="lab">LED membrane</text>
+      <rect x="600" y="188" width="100" height="12" class="box acc" rx="1"/>
+      <text x="720" y="198" class="lab">touchscreen</text>
+      <path d="M570,205 L730,205 L730,222 L570,222 Z" class="box"/>
+      <text x="650" y="238" text-anchor="middle" class="lab">surface-modeled nest, +/- 0.05 in</text>
+      <text x="20" y="200" class="lab">Vent / reset path</text>
+      <polyline points="485,150 485,200 130,200" class="ln dash"/>
+      <text x="20" y="240" class="lab">Amber = air. No electrical components in the control path.</text>
+    </svg>
+    <figcaption><span class="fig-num">FIG 3</span><b>Control circuit and press stack.</b> The regulator fixes force, the self-resetting pneumatic timer fixes dwell, and the surfaced nest fixes position. Those are the only three things that determine bond quality, and none of them depend on the operator.</figcaption>
+  </figure>
+
+  <div class="split rev">
+    <div>
+      <h2>Why it exists</h2>
+      <p>The controller's front assembly is a stack of cosmetic bezel, LED membrane, and touchscreen joined with a 3M structural adhesive that specifies a clamping force and dwell to reach bond strength. The existing approach was manual and inconsistent, so bond quality and part-to-part alignment varied.</p>
+      <p>An electrically timed press would have needed its own electrical validation and maintenance path on the line. The press is therefore fully pneumatic: load the nest, trigger the cycle, the cylinder holds for the timed dwell, the circuit vents and resets itself. Nothing to program, no electrical failure mode to qualify.</p>
+    </div>
+    <figure>
+      <svg viewBox="0 0 820 300" role="img" aria-label="Force versus time profile: rapid rise to 125 pounds, flat hold for 10 seconds, then release and automatic reset.">
+        <line x1="60" y1="240" x2="780" y2="240" class="ln"/>
+        <line x1="60" y1="40" x2="60" y2="240" class="ln"/>
+        <line x1="60" y1="80" x2="780" y2="80" class="grid"/>
+        <text x="50" y="84" text-anchor="end" class="lab">125 lb</text>
+        <text x="50" y="244" text-anchor="end" class="lab">0</text>
+        <polyline points="60,240 120,240 150,80 560,80 590,240 780,240" class="air"/>
+        <line x1="150" y1="80" x2="150" y2="250" class="ln dash"/>
+        <line x1="560" y1="80" x2="560" y2="250" class="ln dash"/>
+        <text x="355" y="270" text-anchor="middle" class="lab">10 s dwell (pneumatic timer)</text>
+        <text x="105" y="270" text-anchor="middle" class="lab">start</text>
+        <text x="680" y="270" text-anchor="middle" class="lab">vent + reset</text>
+        <text x="355" y="62" text-anchor="middle" class="lab">platen force</text>
+        <text x="780" y="292" text-anchor="end" class="lab">time</text>
+      </svg>
+      <figcaption><span class="fig-num">FIG 4</span><b>Target force profile per cycle.</b> Both setpoints are fixed in hardware and readable on the fixture.</figcaption>
+    </figure>
+  </div>
+
+  <div class="split">
+    <figure>
+      <svg viewBox="0 0 820 300" role="img" aria-label="Section view: a nest whose top surface follows the curved outer face of the bezel, so the bezel seats on its own contours; the membrane and touchscreen are captured relative to it.">
+        <path d="M120,250 L120,150 Q160,120 260,118 Q360,116 410,110 Q460,116 560,118 Q660,120 700,150 L700,250 Z" class="box"/>
+        <path d="M150,150 Q200,128 260,126 Q360,124 410,118 Q460,124 560,126 Q620,128 670,150" class="air"/>
+        <rect x="300" y="126" width="220" height="10" class="box"/>
+        <rect x="310" y="136" width="200" height="14" class="box acc"/>
+        <text x="410" y="270" text-anchor="middle" class="lab">nest, surfaced from the bezel's outer geometry</text>
+        <text x="410" y="95" text-anchor="middle">bezel seats on its own contour</text>
+        <line x1="530" y1="131" x2="640" y2="70" class="ln dash"/><text x="645" y="68" class="lab">LED membrane</text>
+        <line x1="520" y1="146" x2="640" y2="200" class="ln dash"/><text x="645" y="204" class="lab">touchscreen</text>
+        <line x1="120" y1="40" x2="700" y2="40" class="ln dash"/>
+        <text x="410" y="34" text-anchor="middle" class="lab">bezel position held to +/- 0.05 in</text>
+      </svg>
+      <figcaption><span class="fig-num">FIG 5</span><b>Nest section, simplified.</b> A flat pocket cannot locate a curved cosmetic part. The nest surface is modeled from the bezel itself.</figcaption>
+    </figure>
+    <div>
+      <h2>Locating, not just holding</h2>
+      <p>The bezel is a cosmetic part with curved faces. I surface-modeled the nest in SolidWorks directly from the bezel's outer geometry so it seats on its own contours, and the touchscreen and membrane are captured relative to it. That is what holds bezel position to &plusmn;0.05 in and keeps the screen and window aligned on every unit.</p>
+      <p>One fixture does two jobs. The mating faces, the printed nest below and the press foot above, are designed to swap, so the same press bonds the touchscreen to the bezel and, with the other face set installed, the LED membrane panel to the bezel. The force, dwell, and alignment scheme stay identical; only the contact geometry changes.</p>
+      <p>The design went through several major revisions coordinated with a second engineering site, and shipped as a complete package: drawings and BOMs for both the press and its pneumatic control box, plus a qualification plan of adhesive shear tests and optical alignment checks.</p>
+    </div>
+  </div>
+
+  <div class="results">
+    <div><b>2 assemblies</b><span>bonded on one press via swappable mating faces</span></div>
+    <div><b>125 lb &middot; 10 s</b><span>repeatable, operator-independent</span></div>
+    <div><b>&plusmn;0.05 in</b><span>bezel alignment from nest geometry</span></div>
+      </div>
+
+  <section class="tech">
+    <h2>Technical details</h2>
+    <div class="inner">
+      <table class="spec">
+        <tr><th>Force / dwell</th><td>125 lb for 10 s, set by regulator and self-resetting pneumatic timer</td></tr>
+        <tr><th>Alignment</th><td>Bezel located to &plusmn;0.05 in by a surface-modeled nest</td></tr>
+        <tr><th>Mating faces</th><td>Swappable nest and press-foot sets: one for touchscreen-to-bezel, one for membrane-to-bezel, on the same frame and control box</td></tr>
+        <tr><th>Control</th><td>Fully pneumatic, no electrical components, no software</td></tr>
+        <tr><th>Safety</th><td>Guarding and operator-clear triggering built into the cycle</td></tr>
+        <tr><th>Documentation</th><td>Full drawings and BOMs for the press and the pneumatic control box</td></tr>
+        <tr><th>Qualification plan</th><td>Adhesive shear testing plus optical alignment checks on laminated assemblies</td></tr>
+        <tr><th>Status at handoff</th><td>Working prototype, validated force profile, adopted by the assembly line as of my departure</td></tr>
+      </table>
+      <h3>Related: ablation test fixture redesign, 3.5x stronger</h3>
+      <p>On the same program a 3D-printed ablation test fixture kept snapping its locating pin. The failure was layer orientation: FDM layer lines ran perpendicular to the bending load and acted as a shear plane. I split the pin into a separate keyed body so the base prints upright and the pin prints with its layers along the load path, then quantified the change with a cantilever test before release. Bending strength improved about 3.5x, and the fixture was released as a new revision through PLM change control with 15+ cross-functional signatures.</p>
+    </div>
+  </section>
+
+  <div class="pn">
+    <a href="connector-cycler.html">&larr; Previous: Connector cycler</a>
+    <a href="ti-nspire-internet-link.html">Next: TI Nspire Internet Link &rarr;</a>
+  </div>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/williamwotterson">LinkedIn</a> &middot; <a href="https://github.com/OtterCadGH">GitHub</a></span>
+  <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
+</div></footer>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RC car chassis - William Otterson</title>
+<meta name="description" content="A 3D-printed monocoque RC car chassis designed in SolidWorks for a budget-constrained machine elements team build, carrying a drivetrain salvaged from broken RC cars.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><i></i>William Otterson</a>
+  <nav><a class="on" href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a><a class="btn" href="../assets/WilliamOtterson_Resume.pdf">Resume</a></nav>
+</div></header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="eyebrow">UT Austin, Machine Elements &middot; team project &middot; Spring 2026</div>
+    <h1>A printed chassis around parts nobody else wanted</h1>
+    <p class="lede">A team RC car built on a fixed budget. My part was the chassis: a single 3D-printed tub designed in SolidWorks to carry a drivetrain, suspension, and steering that my teammates salvaged from broken RC cars, with the electronics bay, servo mount, shock tower, and bulkheads all in one print.</p>
+  </div>
+
+  <div class="glance">
+    <div><span class="k">Outcome</span><b>A running car</b> on a chassis printed from my model, with donor suspension and drivetrain bolted straight to it</div>
+    <div><span class="k">My role</span>Chassis design: packaging, mounting geometry, print orientation. Teammates: drivetrain, electronics, salvage and assembly</div>
+    <div><span class="k">Constraints</span>Fixed team budget; parts from cannibalized broken cars with unknown geometry; must print on a hobby printer</div>
+    <div><span class="k">Skills</span>SolidWorks, design for FDM, packaging around existing hardware, team integration</div>
+  </div>
+
+  <div class="split" style="align-items:stretch">
+    <figure>
+      <img src="../assets/img/rc-chassis-cad.jpg" alt="SolidWorks model of the RC chassis: a long open tub with a front shock tower on four posts, a steering servo pocket, side ribs, and a rear bulkhead with a drivetrain bore">
+      <figcaption><span class="fig-num">FIG 1</span><b>The chassis in SolidWorks.</b> One part: electronics tub, front shock tower on four posts, servo pocket, side ribs with cover mounts, and a rear bulkhead bored for the donor drivetrain.</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/img/rc-car.jpg" alt="The finished RC car: teal printed chassis with ESC, receiver, and battery in the tub, donor suspension arms and shocks at both ends, a printed rear wing, and off-road tires">
+      <figcaption><span class="fig-num">FIG 2</span><b>Built.</b> Printed tub in teal, donor arms and oil shocks at both ends, ESC and receiver in the bay, printed wing on the rear shock mounts.</figcaption>
+    </figure>
+  </div>
+
+  <div class="narrow">
+    <div>
+      <h2>Designing around salvage</h2>
+      <p>The interesting constraint was that nothing bolting to the chassis was ours. Suspension arms, hubs, shocks, the steering linkage, and the rear drivetrain all came from donor cars my teammates pulled apart, so the chassis had to match hole patterns and pivot geometry that we measured off broken parts rather than pulled from a drawing.</p>
+      <p>That pushed me toward one monolithic tub instead of a plate-and-bulkhead stack: fewer interfaces to get wrong, and every mount referenced to the same print. The front carries a raised shock tower on four posts and a pocket for the steering servo; the rear bulkhead is bored for the donor drivetrain and takes the wing mounts. Side ribs stiffen the long open bay that holds the ESC, receiver, and battery.</p>
+      <p>Print orientation was part of the design. The tub prints upright on its floor so the long walls are continuous in the direction they bend, and the tower posts are sized to print without support.</p>
+    </div>
+
+  </div>
+
+  <section class="tech">
+    <h2>Technical details</h2>
+    <div class="inner">
+      <table class="spec">
+        <tr><th>Chassis</th><td>Monolithic FDM tub, SolidWorks; front shock tower on four posts, steering servo pocket, ribbed sidewalls with cover mounts, rear bulkhead with drivetrain bore</td></tr>
+        <tr><th>Material</th><td>PLA for the main tub, XTCF-20 carbon-fiber PETG for the loaded parts; printed upright on the floor for wall continuity</td></tr>
+        <tr><th>Wheelbase</th><td>About 15 in</td></tr>
+        <tr><th>Salvage</th><td>Suspension arms, hubs, shocks, steering, rear motor and gearbox from broken donor cars (teammates)</td></tr>
+        <tr><th>Electronics</th><td>ESC, receiver, steering servo, LiPo in the bay; printed rear wing</td></tr>
+        <tr><th>Team split</th><td>Will: chassis design and print. Teammates: drivetrain, salvage, electronics, assembly</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <div class="pn">
+    <a href="ut-tower-ornament.html">&larr; Previous: UT Tower ornament</a>
+    <a href="windmill-generator.html">Next: Windmill generator &rarr;</a>
+  </div>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/williamwotterson">LinkedIn</a> &middot; <a href="https://github.com/OtterCadGH">GitHub</a></span>
+  <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
+</div></footer>
+
+</body>
+</html>

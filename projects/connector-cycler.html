@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connector lifetime test rig - William Otterson</title>
+<meta name="description" content="Automated pneumatic plug/unplug cycler with Hall-effect stroke verification, built to quantify receptacle wear over 7,500 cycles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><i></i>William Otterson</a>
+  <nav><a class="on" href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a><a class="btn" href="../assets/WilliamOtterson_Resume.pdf">Resume</a></nav>
+</div></header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="eyebrow">Smith+Nephew &middot; R&amp;D Engineer Co-op &middot; 2025</div>
+    <h1>A cycler that only counts what it can prove</h1>
+    <p class="lede">An automated plug/unplug rig that quantified receptacle wear on a new electrosurgical controller: 7,500 verified cycles per receptacle, unattended, when no test system for it existed.</p>
+  </div>
+
+  <div class="glance">
+    <div><span class="k">Outcome</span><b>7,500-cycle endurance data per receptacle</b>, new design showed minimal wear vs. legacy; vendor spring substitution caught in preliminary runs</div>
+    <div><span class="k">My role</span>Sole designer and builder: mechanism, pneumatics, PCB, firmware, protocol</div>
+    <div><span class="k">Constraints</span>No existing fixture; runs must be unattended; wear must land on the receptacle only</div>
+    <div><span class="k">Skills</span>Pneumatics, KiCad, Arduino Nano ESP32, Hall sensing, test protocol design</div>
+  </div>
+
+  <figure class="hero-fig">
+    <img src="../assets/img/cycler-rig.jpg" alt="The connector cycler rig from above: pneumatic air slide on an extrusion rail with two Hall-effect end sensors, the spring-mounted receptacle fixture (connector obscured), four ASCO solenoid valves with tubing, a relay bank, an LCD reading cycles: 525, and the Arduino Nano ESP32 on a breadboard">
+    <figcaption><span class="fig-num">FIG 1</span><b>The rig, mid-run.</b> Air slide and end-of-stroke sensors along the top rail, the four ASCO valves on the right, relay bank and LCD in the middle (reading 525 cycles), controller lower left. The proprietary plug and receptacle are obscured.</figcaption>
+  </figure>
+
+  <figure class="hero-fig">
+    <svg viewBox="0 0 820 350" role="img" aria-label="Block diagram of the connector cycler: a custom PCB with an Arduino Nano ESP32, relay bank and LCD drives four solenoid valves through flow regulators into a pneumatic air slide that carries a sacrificial plug into a spring-mounted receptacle; Hall sensors at both ends of the stroke report back to the microcontroller.">
+      <rect x="40" y="40" width="290" height="210" class="ln dash" rx="4"/>
+      <text x="48" y="32" class="lab">CUSTOM PCB (KiCad), replaced breadboard wiring</text>
+      <rect x="60" y="70" width="120" height="60" class="box acc" rx="3"/>
+      <text x="120" y="96" text-anchor="middle">Arduino Nano</text>
+      <text x="120" y="112" text-anchor="middle">ESP32</text>
+      <rect x="200" y="70" width="110" height="60" class="box" rx="3"/>
+      <text x="255" y="96" text-anchor="middle">Relay bank</text>
+      <text x="255" y="112" text-anchor="middle" class="lab">4 channels</text>
+      <rect x="50" y="170" width="140" height="50" class="box" rx="3"/>
+      <text x="120" y="192" text-anchor="middle">LCD status</text>
+      <text x="120" y="206" text-anchor="middle" class="lab">dir pause hall count</text>
+      <line x1="180" y1="100" x2="200" y2="100" class="ln"/>
+      <line x1="120" y1="130" x2="120" y2="170" class="ln"/>
+      <rect x="360" y="50" width="150" height="100" class="box" rx="3"/>
+      <text x="435" y="80" text-anchor="middle">4x ASCO solenoids</text>
+      <text x="435" y="100" text-anchor="middle" class="lab">2 supply, 2 exhaust</text>
+      <text x="435" y="116" text-anchor="middle" class="lab">one pair per direction</text>
+      <line x1="310" y1="100" x2="360" y2="100" class="ln"/>
+      <rect x="370" y="200" width="130" height="40" class="box" rx="3"/>
+      <text x="435" y="225" text-anchor="middle">Shop air supply</text>
+      <line x1="435" y1="200" x2="435" y2="150" class="air"/>
+      <rect x="540" y="60" width="100" height="70" class="box" rx="3"/>
+      <text x="590" y="90" text-anchor="middle">Flow</text>
+      <text x="590" y="106" text-anchor="middle">regulators</text>
+      <line x1="510" y1="95" x2="540" y2="95" class="air"/>
+      <rect x="670" y="50" width="130" height="80" class="box" rx="3"/>
+      <text x="735" y="82" text-anchor="middle">Pneumatic</text>
+      <text x="735" y="98" text-anchor="middle">air slide</text>
+      <text x="735" y="116" text-anchor="middle" class="lab">linear stroke</text>
+      <line x1="640" y1="95" x2="670" y2="95" class="air"/>
+      <rect x="670" y="170" width="130" height="55" class="box" rx="3"/>
+      <text x="735" y="193" text-anchor="middle">Wand plug</text>
+      <text x="735" y="210" text-anchor="middle" class="lab">sacrificial, swapped</text>
+      <line x1="735" y1="130" x2="735" y2="170" class="ln"/>
+      <rect x="670" y="270" width="130" height="60" class="box acc" rx="3"/>
+      <text x="735" y="293" text-anchor="middle">Receptacle</text>
+      <text x="735" y="308" text-anchor="middle" class="lab">under test</text>
+      <text x="735" y="322" text-anchor="middle" class="lab">spring-mounted</text>
+      <line x1="735" y1="225" x2="735" y2="270" class="ln"/>
+      <rect x="530" y="200" width="120" height="70" class="box" rx="3"/>
+      <text x="590" y="226" text-anchor="middle">Hall sensors</text>
+      <text x="590" y="242" text-anchor="middle" class="lab">extended + retracted</text>
+      <text x="590" y="256" text-anchor="middle" class="lab">end-of-stroke</text>
+      <line x1="650" y1="215" x2="690" y2="150" class="ln dash"/>
+      <line x1="650" y1="255" x2="690" y2="225" class="ln dash"/>
+      <polyline points="530,245 530,310 190,310 190,120 180,120" class="ln dash"/>
+      <text x="360" y="304" text-anchor="middle" class="lab">stroke confirmation</text>
+    </svg>
+    <figcaption><span class="fig-num">FIG 2</span><b>System architecture.</b> Amber lines are air, dashed lines are signals. The two Hall sensors are the point of the design: a stroke that does not trip both is never counted, so every number in the wear data corresponds to a full engagement and a full retraction.</figcaption>
+  </figure>
+
+  <div class="narrow">
+      <h2>Why it exists</h2>
+      <p>The controller's handpiece receptacle sees a plug inserted and removed many times over its service life. The program needed to know how the new receptacle wore compared with the legacy design, and whether cycling produced any electrical failure mode. Doing it by hand is neither repeatable nor practical at thousands of cycles, and no fixture existed.</p>
+      <p>I set four requirements: count only verified full strokes, put all wear on the receptacle (the plug is the consumable), reproduce natural plug-in motion rather than a rigid press-fit, and run unattended while reporting state at a glance.</p>
+  </div>
+    <figure>
+      <svg viewBox="0 0 820 150" role="img" aria-label="Cycle state flow: extend, confirm engaged via Hall sensor, retract, confirm retracted via Hall sensor, increment count, and every 500 cycles pause for plug swap, then loop.">
+        <rect x="20" y="40" width="110" height="50" class="box" rx="3"/>
+        <text x="75" y="70" text-anchor="middle">Extend</text>
+        <rect x="160" y="40" width="130" height="50" class="box acc" rx="3"/>
+        <text x="225" y="62" text-anchor="middle">Hall: engaged?</text>
+        <text x="225" y="78" text-anchor="middle" class="lab">else wait / flag</text>
+        <rect x="320" y="40" width="110" height="50" class="box" rx="3"/>
+        <text x="375" y="70" text-anchor="middle">Retract</text>
+        <rect x="460" y="40" width="130" height="50" class="box acc" rx="3"/>
+        <text x="525" y="62" text-anchor="middle">Hall: retracted?</text>
+        <text x="525" y="78" text-anchor="middle" class="lab">else wait / flag</text>
+        <rect x="620" y="40" width="80" height="50" class="box" rx="3"/>
+        <text x="660" y="70" text-anchor="middle">count +1</text>
+        <rect x="730" y="40" width="80" height="50" class="box" rx="3"/>
+        <text x="770" y="62" text-anchor="middle">n % 500</text>
+        <text x="770" y="78" text-anchor="middle" class="lab">= 0: pause</text>
+        <line x1="130" y1="65" x2="160" y2="65" class="ln"/>
+        <line x1="290" y1="65" x2="320" y2="65" class="ln"/>
+        <line x1="430" y1="65" x2="460" y2="65" class="ln"/>
+        <line x1="590" y1="65" x2="620" y2="65" class="ln"/>
+        <line x1="700" y1="65" x2="730" y2="65" class="ln"/>
+        <polyline points="770,90 770,120 75,120 75,90" class="ln dash"/>
+        <text x="380" y="135" text-anchor="middle" class="lab">~3.5 s per cycle, both Hall confirmations required to count</text>
+      </svg>
+      <figcaption><span class="fig-num">FIG 3</span><b>One cycle.</b> About 3.5 s. Every 500 cycles the rig pauses itself so the sacrificial plug can be swapped and the receptacle keeps all the wear.</figcaption>
+    </figure>
+
+  <div class="results">
+    <div><b>7,500</b><span>verified cycles per receptacle</span></div>
+    <div><b>3.5 s</b><span>per cycle</span></div>
+    <div><b>~7 h</b><span>unattended per run</span></div>
+  </div>
+
+  <p>The rig ran reliably through its full protocols. The new receptacle showed minimal wear relative to the legacy design, and the data was documented and shared with the full engineering team as input to design verification. The most useful catch came before formal testing: contact pad contamination in my preliminary runs traced back to an undocumented vendor spring substitution with a degrading coating, which let the team drive a corrective action before it reached the formal campaign.</p>
+
+  <section class="tech">
+    <h2>Technical details</h2>
+    <div class="inner">
+      <p>A double-acting pneumatic slide provides the linear motion. Four ASCO solenoid valves, two supply and two exhaust, are switched through a relay bank so each direction has its own controlled fill and vent. Flow regulators on each side set stroke speed independently, which is how insertion was tuned to feel like a human plug-in rather than a slam. The receptacle sits on a spring mount so it can float slightly during engagement and the plug finds its own alignment.</p>
+      <p>The controller is an Arduino Nano ESP32 on a custom KiCad board that replaced the original breadboard harness once the logic was proven. Firmware sequences the valves, reads both Hall sensors, and only increments the counter when a stroke is confirmed at both ends. An LCD shows direction, pause state, Hall status, and cycle count.</p>
+      <table class="spec">
+        <tr><th>Actuation</th><td>Pneumatic air slide, double-acting, speed set by inline flow regulators</td></tr>
+        <tr><th>Valving</th><td>4x ASCO solenoid valves (2 supply, 2 exhaust) driven by a 4-channel relay bank</td></tr>
+        <tr><th>Controller</th><td>Arduino Nano ESP32 on a custom KiCad PCB</td></tr>
+        <tr><th>Stroke verification</th><td>Hall-effect sensors at extended and retracted positions; both required per counted cycle</td></tr>
+        <tr><th>Cycle time</th><td>About 3.5 s; a 7,500-cycle run is roughly 7 hours unattended</td></tr>
+        <tr><th>Protocol</th><td>7,500 cycles per receptacle, auto-pause every 500 for plug swap; programmable to 10,000</td></tr>
+        <tr><th>Operator interface</th><td>LCD: direction, pause state, Hall status, cycle count</td></tr>
+      </table>
+      <h3>What I would change</h3>
+      <p>Log every cycle with a timestamp and both Hall transitions rather than a running count, so a wear curve can be plotted against cycle number after the fact. The ESP32 has the connectivity; the first version prioritized a trustworthy count.</p>
+    </div>
+  </section>
+
+  <p class="note">The connector under test is proprietary and is obscured in the photograph. Diagrams are my own.</p>
+
+  <div class="pn">
+    <a href="../index.html#work">&larr; All work</a>
+    <a href="press-fixture.html">Next: Pneumatic lamination press &rarr;</a>
+  </div>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/williamwotterson">LinkedIn</a> &middot; <a href="https://github.com/OtterCadGH">GitHub</a></span>
+  <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
+</div></footer>
+
+</body>
+</html>

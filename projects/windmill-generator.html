@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Windmill generator and indicator circuit - William Otterson</title>
+<meta name="description" content="Mechatronics lab project: a wind turbine generator with AC-to-DC conversion and an analog indicator circuit that flags too slow, too fast, and speed by brightness.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script src="../assets/js/model-viewer.min.js" defer></script>
+</head>
+<body>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><i></i>William Otterson</a>
+  <nav><a class="on" href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a><a class="btn" href="../assets/WilliamOtterson_Resume.pdf">Resume</a></nav>
+</div></header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="eyebrow">UT Austin, ME 140L Mechatronics Lab &middot; solo project</div>
+    <h1>A printed vertical-axis turbine that tells you when it's spinning wrong</h1>
+    <p class="lede">A wind-powered generator with an AC-to-DC conversion stage and an analog indicator circuit that lights "too slow," "too fast," and a lamp whose brightness tracks speed. The lab supplied a generator and a stock propeller; I designed and printed a helical vertical-axis turbine and a tripod stand for it instead, then characterized the system at three wind speeds.</p>
+  </div>
+
+  <div class="glance">
+    <div><span class="k">Outcome</span><b>Working turbine and indicator system</b>, demonstrated live on a custom-printed vertical-axis rotor, documented with data at three wind speeds</div>
+    <div><span class="k">My role</span>Solo: turbine and stand CAD and printing, rectifier, comparator and gate logic, Multisim model, data collection</div>
+    <div><span class="k">Constraints</span>Discrete components only (resistors, diodes, comparators, transistors, LEDs); provided generator; three-week lab window; extra credit only for electrical features, so the turbine was for me</div>
+    <div><span class="k">Skills</span>Analog circuit design, rectification and filtering, comparator thresholds, Multisim, experimental characterization, turbine CAD and FDM printing</div>
+  </div>
+
+  <div class="split" style="align-items:stretch">
+    <figure>
+      <img src="../assets/img/windmill-turbine.jpg" alt="3D-printed helical vertical-axis wind turbine on a printed tripod stand, generator mounted in the hub">
+      <figcaption><span class="fig-num">FIG 1</span><b>The turbine.</b> A two-blade helical vertical-axis rotor, printed in one piece, on a printed tripod stand with the generator in the hub. Vertical-axis means it takes wind from any direction without yawing, which mattered on a bench with a box fan.</figcaption>
+    </figure>
+    <figure>
+      <video controls muted playsinline preload="metadata" poster="../assets/video/windmill-demo-poster.jpg" src="../assets/video/windmill-demo.mp4"></video>
+      <figcaption><span class="fig-num">FIG 2</span><b>Demo, 11 seconds.</b> Box fan on the left, turbine spinning, indicator breadboard on the right with the oscilloscope watching the generator output.</figcaption>
+    </figure>
+  </div>
+
+  <div class="split stack">
+    <div>
+      <h2>The spec</h2>
+      <p>The generator is a permanent-magnet machine, so its output is AC with a voltage that rises with shaft speed. The assignment required converting that to DC and building an indicator system with three behaviors: a light that comes on when the turbine is not spinning fast enough, a light that comes on when it is spinning too fast, and a light whose intensity increases continuously with speed. Everything had to be built from discrete parts, modeled first in Multisim, and characterized with data at three wind speeds.</p>
+      <p>The rectified generator voltage is the speed signal. Comparators measure it against reference levels derived from a bench 12 V supply, which only provides the comparison voltages and does not power the indicator circuit. The comparator outputs feed simple logic gates so that exactly one indication is lit at a time: too slow, in range, or too fast, with the brightness lamp driven from the rectified bus directly so it tracks speed continuously.</p>
+    </div>
+    <figure>
+      <svg viewBox="0 0 820 410" role="img" aria-label="Signal chain: turbine generator AC output, rectifier and filter to DC; a bench 12 V supply provides reference voltages only; two comparators test the DC bus against low and high references; gate logic lights exactly one of too slow, in range, too fast; a separate branch drives a brightness LED from the DC bus.">
+        <rect x="280" y="16" width="260" height="52" class="box" rx="3"/>
+        <text x="410" y="38" text-anchor="middle">Turbine generator</text>
+        <text x="410" y="56" text-anchor="middle" class="lab">AC, amplitude rises with speed</text>
+        <line x1="410" y1="68" x2="410" y2="96" class="ln"/>
+        <rect x="280" y="96" width="260" height="52" class="box acc" rx="3"/>
+        <text x="410" y="118" text-anchor="middle">Rectifier + filter</text>
+        <text x="410" y="136" text-anchor="middle" class="lab">DC bus = speed signal</text>
+        <rect x="590" y="96" width="210" height="52" class="box" rx="3"/>
+        <text x="695" y="118" text-anchor="middle">Bench 12 V supply</text>
+        <text x="695" y="136" text-anchor="middle" class="lab">reference only</text>
+        <line x1="410" y1="148" x2="410" y2="176" class="ln"/>
+        <line x1="120" y1="176" x2="700" y2="176" class="ln"/>
+        <line x1="120" y1="176" x2="120" y2="206" class="ln"/><line x1="410" y1="176" x2="410" y2="206" class="ln"/><line x1="700" y1="176" x2="700" y2="206" class="ln"/>
+        <line x1="695" y1="148" x2="695" y2="160" class="ln dash"/><line x1="200" y1="160" x2="695" y2="160" class="ln dash"/><line x1="200" y1="160" x2="200" y2="206" class="ln dash"/><line x1="620" y1="160" x2="620" y2="206" class="ln dash"/>
+        <rect x="20" y="206" width="220" height="56" class="box" rx="3"/>
+        <text x="130" y="228" text-anchor="middle">Comparator, low</text>
+        <text x="130" y="246" text-anchor="middle" class="lab">DC bus vs V_low reference</text>
+        <rect x="300" y="206" width="220" height="56" class="box" rx="3"/>
+        <text x="410" y="228" text-anchor="middle">Brightness branch</text>
+        <text x="410" y="246" text-anchor="middle" class="lab">LED driven from the DC bus</text>
+        <rect x="580" y="206" width="220" height="56" class="box" rx="3"/>
+        <text x="690" y="228" text-anchor="middle">Comparator, high</text>
+        <text x="690" y="246" text-anchor="middle" class="lab">DC bus vs V_high reference</text>
+        <line x1="130" y1="262" x2="130" y2="320" class="ln"/><line x1="130" y1="320" x2="200" y2="320" class="ln"/><line x1="690" y1="262" x2="690" y2="320" class="ln"/><line x1="620" y1="320" x2="690" y2="320" class="ln"/>
+        <rect x="200" y="298" width="420" height="44" class="box acc" rx="3"/>
+        <text x="410" y="318" text-anchor="middle">Logic gates</text>
+        <text x="410" y="334" text-anchor="middle" class="lab">exactly one indicator on at a time</text>
+        <line x1="260" y1="342" x2="260" y2="357" class="ln"/><line x1="410" y1="342" x2="410" y2="357" class="ln"/><line x1="560" y1="342" x2="560" y2="357" class="ln"/>
+        <circle cx="260" cy="368" r="11" class="box acc"/><text x="260" y="394" text-anchor="middle" class="lab">TOO SLOW</text>
+        <circle cx="410" cy="368" r="11" class="box acc"/><text x="410" y="394" text-anchor="middle" class="lab">IN RANGE</text>
+        <circle cx="560" cy="368" r="11" class="box acc"/><text x="560" y="394" text-anchor="middle" class="lab">TOO FAST</text>
+        <line x1="410" y1="262" x2="410" y2="271" class="ln"/>
+        <circle cx="410" cy="280" r="9" class="box acc"/><text x="450" y="284" class="lab">BRIGHTNESS LED</text>
+      </svg>
+      <figcaption><span class="fig-num">FIG 3</span><b>Signal chain.</b> One rectified bus feeds two comparators and the brightness lamp; the 12 V bench supply only sets the reference levels. Gate logic makes the three indicators mutually exclusive, which also covers the extra-credit "in range" light.</figcaption>
+    </figure>
+  </div>
+
+  <h2>The rotor</h2>
+  <div class="mv-wrap" style="margin-bottom:12px">
+    <span class="tag">interactive: drag to orbit, scroll to zoom</span>
+    <model-viewer src="../assets/models/windmill-blade.glb" alt="3D model of the helical vertical-axis turbine rotor" camera-controls auto-rotate auto-rotate-delay="1500" rotation-per-second="20deg" environment-image="neutral" shadow-intensity="1.2" shadow-softness="0.8" exposure="0.85" camera-orbit="30deg 70deg 105%" min-camera-orbit="auto auto 50%" max-camera-orbit="auto auto 200%" interaction-prompt="none" loading="eager" style="height:460px">
+      <div slot="poster" style="height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:var(--muted)">loading 3D model (321 KB)</div>
+    </model-viewer>
+    <span class="hint">120 x 120 x 100 mm &middot; <a href="../assets/models/windmill-blade.stl" download>download STL</a></span>
+  </div>
+  <figcaption style="margin-bottom:44px"><span class="fig-num">FIG 4</span><b>The helical rotor, as modeled.</b> Two blades twisted through the height so torque stays smooth through the rotation and the turbine self-starts from any wind direction. Printed in one piece with the generator hub in the center.</figcaption>
+
+  <p class="narrow"><em>Still to add: the three fan speeds tested with the DC voltage at each, and the two threshold voltages.</em></p>
+
+  <section class="tech">
+    <h2>Technical details</h2>
+    <div class="inner">
+      <table class="spec">
+        <tr><th>Generator</th><td>Provided permanent-magnet generator, mounted in the hub of a custom rotor</td></tr>
+        <tr><th>Rotor</th><td>Two-blade helical vertical-axis turbine and tripod stand, designed and FDM printed by me</td></tr>
+        <tr><th>Conversion</th><td>Rectifier and filter on the generator output; the resulting DC bus is the speed signal</td></tr>
+        <tr><th>Indicators</th><td>Two comparators against references from a bench 12 V supply (reference only); logic gates so only one of too slow, in range, too fast is lit; brightness LED driven from the DC bus</td></tr>
+        <tr><th>Modeling</th><td>Multisim before build</td></tr>
+        <tr><th>Data</th><td>Three fan speeds; <em>voltages to add</em></td></tr>
+        <tr><th>Assignment</th><td><a href="../assets/docs/ME140L_Windmill_Generator_Assignment.pdf">Project brief (PDF)</a></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <div class="pn">
+    <a href="rc-car-chassis.html">&larr; Previous: RC car chassis</a>
+    <a href="overdose-response-device.html">Next: Overdose response device &rarr;</a>
+  </div>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/williamwotterson">LinkedIn</a> &middot; <a href="https://github.com/OtterCadGH">GitHub</a></span>
+  <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
+</div></footer>
+
+</body>
+</html>
