@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>William Otterson - Mechanical Engineering</title>
+<meta name="description" content="Portfolio of William Otterson, mechanical engineering student at UT Austin. Test rigs, production fixtures, and embedded hardware.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html"><i></i>William Otterson</a>
+  <nav><a class="on" href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a><a class="btn" href="assets/WilliamOtterson_Resume.pdf">Resume</a></nav>
+</div></header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Mechanical engineer &middot; UT Austin '27 &middot; Austin, TX</div>
+      <h1>Hardware that has to work.</h1>
+      <p>I build test rigs, production fixtures, and small embedded devices, and I put a number on every claim. Medical device R&amp;D background at Smith+Nephew and International Biomedical.</p>
+      <div class="cta"><a class="p" href="#work">View projects</a><a class="s" href="assets/WilliamOtterson_Resume.pdf">Download resume</a></div>
+      <div class="meta-row">
+        <div>Focus<b>Test &amp; fixture design</b></div>
+        <div>Stack<b>SolidWorks &middot; KiCad &middot; ESP32 / C++</b></div>
+        <div>Status<b>Open to 2027 full-time</b></div>
+      </div>
+    </div>
+    <div class="slot r43">
+      <span class="tag">pneumatic lamination press</span>
+      <a href="projects/press-fixture.html"><img src="assets/img/press-fixture.jpg" alt="Pneumatic lamination press on the bench with its all-pneumatic control box" style="object-position:center 58%"></a>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div><b>7,500</b><span>plug/unplug cycles per receptacle, unattended</span></div>
+    <div><b>125 lb &middot; 10 s</b><span>press force and dwell, fixed in hardware</span></div>
+    <div><b>38 stars</b><span>open-hardware platform with a community that contributes firmware</span></div>
+  </div>
+
+  <div class="sec" id="work"><h2>Selected work</h2><a href="#about">About me &rarr;</a></div>
+  <div class="grid">
+
+    <a class="card big" href="projects/connector-cycler.html">
+      <div class="img"><img src="assets/img/cycler-rig.jpg" alt="Connector cycler rig: air slide, Hall sensors, solenoid valves, relay bank, LCD, and controller"></div>
+      <div class="body"><div class="k">Smith+Nephew</div><h3>Automated connector lifetime test rig</h3><p>Pneumatic plug/unplug cycler with Hall-effect stroke verification, a custom KiCad PCB, and auto-pause for plug swaps. Quantified receptacle wear over 7,500 cycles and caught a vendor spring substitution in preliminary testing.</p><div class="chips"><span>pneumatics</span><span>KiCad</span><span>Arduino Nano ESP32</span><span>test automation</span></div></div>
+    </a>
+
+    <a class="card" href="projects/press-fixture.html">
+      <div class="img"><img src="assets/video/press-fixture-demo-2-poster.jpg" alt="Pneumatic lamination press, side view" style="object-position:center 55%"></div>
+      <div class="body"><div class="k">Smith+Nephew</div><h3>Pneumatic lamination press</h3><p>All-pneumatic, self-resetting press for touchscreen and bezel assemblies. Drawings and BOMs handed off for line adoption.</p><div class="chips"><span>fixtures</span><span>surfacing</span><span>DFM</span></div></div>
+    </a>
+
+    <a class="card" href="projects/ti-nspire-internet-link.html">
+      <div class="img"><img src="assets/img/nspire-v2-underside.jpg" alt="V2 nternet-Link adapter with the shell open"></div>
+      <div class="body"><div class="k">Personal &middot; open hardware</div><h3>nternet-Link</h3><p>The hardware side of an open platform that puts a TI-Nspire on the network: four generations of plug-in adapters, printed shells, and a 40 x 15 mm custom PCB, with a community that now writes the firmware. 38 stars.</p><div class="chips"><span>ESP32 hardware</span><span>KiCad</span><span>packaging</span><span>community</span></div></div>
+    </a>
+
+    
+
+    <a class="card big" href="projects/ut-tower-ornament.html">
+      <div class="img"><img src="assets/img/tower-trio.jpg" alt="UT Tower desk model: unlit, lit white, lit burnt orange"></div>
+      <div class="body"><div class="k">Personal &middot; CAD + embedded</div><h3>IoT UT Tower ornament</h3><p>Modeled from the original blueprints in SolidWorks and resin printed; an ESP32 in the base polls the university's lighting page and lights the model to match. Interactive 3D model on the page.</p><div class="chips"><span>SolidWorks</span><span>ESP32</span><span>resin printing</span><span>3D viewer</span></div></div>
+    </a>
+
+    <a class="card" href="projects/rc-car-chassis.html">
+      <div class="img"><img src="assets/img/rc-car.jpg" alt="RC car with a teal printed chassis" style="object-position:center 55%"></div>
+      <div class="body"><div class="k">UT Austin &middot; machine elements</div><h3>RC car chassis</h3><p>One printed tub carrying a drivetrain and suspension salvaged from broken RC cars. I designed the chassis; the team built the rest.</p><div class="chips"><span>SolidWorks</span><span>design for FDM</span><span>team build</span></div></div>
+    </a>
+
+    <a class="card" href="projects/windmill-generator.html">
+      <div class="img"><img src="assets/img/windmill-turbine.jpg" alt="3D-printed vertical-axis wind turbine on a tripod stand" style="object-position:center 45%"></div>
+      <div class="body"><div class="k">UT Austin &middot; mechatronics lab</div><h3>Vertical-axis wind turbine + indicator circuit</h3><p>Printed helical rotor on a generator, AC-to-DC conversion, and an analog indicator circuit: too slow, too fast, and brightness that tracks speed.</p><div class="chips"><span>analog circuits</span><span>comparators</span><span>turbine CAD</span></div></div>
+    </a>
+
+    <a class="card" href="projects/overdose-response-device.html">
+      <div class="img"><img src="assets/img/overdose-prototype.jpg" alt="Overdose response device first prototype with two LCDs" style="object-position:center 45%"></div>
+      <div class="body"><div class="k">Personal</div><h3>Overdose emergency aid device</h3><p>ESP8266 with a MAX30100 and a microphone, scoring pulse, SpO2, and breathing into a risk score that drives Narcan prompts on an LCD.</p><div class="chips"><span>ESP8266</span><span>MAX30100</span><span>risk scoring</span></div></div>
+    </a>
+  </div>
+
+  <section class="two" id="about">
+    <div>
+      <h2>About</h2>
+      <p>Mechanical engineering student at UT Austin, graduating May 2027. Most of my work has been in medical device R&amp;D, where documenting everything and testing early became habit. I like problems that sit between mechanical, electrical, and software, and I tend to build the test rig before I trust the part.</p>
+      <p>Outside of work I design and publish open hardware on <a href="https://github.com/OtterCadGH">GitHub</a> and <a href="https://www.youtube.com/@OtterCADyt">YouTube</a>. Open to full-time mechanical, test, and R&amp;D engineering roles starting 2027. US citizen.</p>
+      <p><b>Tools:</b> SolidWorks (GD&amp;T to ASME Y14.5, surfacing, tolerance analysis, FEA), KiCad, Arduino and ESP32, Python, MATLAB, Lua, pneumatics, thermocouple and Hall-effect instrumentation, FDM and SLA printing, CNC, laser cutting, composite layups.</p>
+    </div>
+    <div>
+      <h2>Experience</h2>
+      <ul class="exp">
+        <li><div><b>International Biomedical</b><span>Mechanical Engineering Intern, Austin, TX</span></div><i>May 2026 - now</i></li>
+        <li><div><b>Smith+Nephew</b><span>R&amp;D Engineer Co-op, ENT, Austin, TX</span></div><i>Jun - Dec 2025</i></li>
+        <li><div><b>MINIMAX Lab, UT Austin</b><span>Research Assistant, piezoelectric micropumps</span></div><i>Aug 2024 - Apr 2026</i></li>
+        <li><div><b>GoPro</b><span>Product Evaluation Tester, Maui, HI</span></div><i>Jan - Mar 2022</i></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site" id="contact"><div class="wrap">
+  <span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/williamwotterson">LinkedIn</a> &middot; <a href="https://github.com/OtterCadGH">GitHub</a> &middot; <a href="https://www.youtube.com/@OtterCADyt">YouTube</a></span>
+  <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
+</div></footer>
+
+</body>
+</html>
