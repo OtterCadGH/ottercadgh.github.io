@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="IoT UT Tower ornament - William Otterson">
+<meta property="og:description" content="Desk-scale model of the UT Tower reverse-engineered from the original architectural blueprints in SolidWorks, lit by an ESP32 that mirrors the real tower's lighting status. Interactive 3D model.">
+<meta property="og:image" content="https://ottercadgh.github.io/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://ottercadgh.github.io/projects/ut-tower-ornament.html">
+<meta name="twitter:card" content="summary_large_image">
 <script src="../assets/js/model-viewer.min.js" defer></script>
 </head>
 <body>
@@ -21,7 +29,7 @@
 <main class="wrap">
 
   <div class="phead">
-    <div class="eyebrow">Personal &middot; CAD + embedded &middot; <em>dates TBD</em></div>
+    <div class="eyebrow">Personal &middot; CAD + embedded &middot; Oct 2024 to Jan 2025</div>
     <h1>The UT Tower on a desk, lit like the real one</h1>
     <p class="lede">A desk-scale model of the UT Austin Tower, modeled in SolidWorks from the original architectural blueprints and printed in white resin, with an ESP32 inside that reads the university's tower-lighting page and lights the model to match: white on an ordinary night, burnt orange after a win.</p>
   </div>
@@ -35,12 +43,12 @@
 
   <div class="mv-wrap" style="margin-bottom:12px">
     <span class="tag">interactive: drag to orbit, scroll to zoom</span>
-    <model-viewer src="../assets/models/ut-tower.glb" alt="3D model of the UT Tower ornament, reverse-engineered from the original blueprints" camera-controls auto-rotate auto-rotate-delay="1500" rotation-per-second="20deg" environment-image="neutral" shadow-intensity="1.2" shadow-softness="0.8" exposure="0.85" camera-orbit="35deg 78deg 88%" min-camera-orbit="auto auto 40%" max-camera-orbit="auto auto 200%" interaction-prompt="none" loading="eager">
+    <model-viewer src="../assets/models/ut-tower.glb" alt="3D model of the UT Tower ornament, reverse-engineered from the original blueprints" camera-controls auto-rotate auto-rotate-delay="1500" rotation-per-second="20deg" environment-image="neutral" shadow-intensity="1.2" shadow-softness="0.8" exposure="0.85" camera-orbit="35deg 78deg 100%" min-camera-orbit="auto auto 40%" max-camera-orbit="auto auto 200%" interaction-prompt="none" loading="eager">
       <div slot="poster" class="ph" style="height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:var(--muted)">loading 3D model (665 KB)</div>
     </model-viewer>
     <span class="hint"><a href="../assets/models/ut-tower.stl" download>download STL</a></span>
   </div>
-  <figcaption style="margin-bottom:44px"><span class="fig-num">FIG 1</span><b>The SolidWorks model, in your browser.</b> Setbacks, window rhythm, the observation deck colonnade, and the clock faces are all in the geometry, which is why the printed part reads as the Tower from across a room.</figcaption>
+  <figcaption style="margin-bottom:44px"><span class="fig-num">FIG 1</span><b>The SolidWorks model, in your browser.</b> Setbacks, window rhythm, the observation deck colonnade, and the clock faces are all in the geometry.</figcaption>
 
   <div class="quad">
     <figure>
@@ -63,9 +71,9 @@
 
   <div class="narrow">
     <h2>The source</h2>
-    <p>Most tower models online are approximations. I worked from the original "Main Building and Library Extension" drawings, the north elevation of the tower at 1/8 in to the foot, with every tier elevation called out down the left margin. The setbacks, the observation-deck colonnade, the clock face, and the window rhythm in the model all come from that sheet rather than from photographs.</p>
+    <p>Most tower models online are eyeballed from photos. I worked from the original "Main Building and Library Extension" drawings instead, the north elevation of the tower at 1/8 in to the foot, with every tier elevation called out down the left margin. The setbacks, the observation-deck colonnade, the clock face, and the window rhythm in the model all come from that sheet.</p>
     <h2>The lighting</h2>
-    <p>The real tower changes its lighting for football wins, graduation, and other events, and the university publishes the current status on a web page. An ESP32 in the base polls that page over Wi-Fi, parses the configuration, and drives the model's LEDs to match. The model has no schedule of its own; it just mirrors the source. The walls are printed thin enough that the window cutouts glow when lit from inside, which is what makes the lighting states legible instead of just a bright base.</p>
+    <p>The real tower changes its lighting for football wins, graduation, and other events, and the university publishes the current status on a web page. An ESP32 in the base polls that page over Wi-Fi, parses the configuration, and drives the model's LEDs to match; it has no schedule of its own, it shows whatever the university publishes. The walls are printed thin enough that the window cutouts glow when lit from inside, which is what makes the lighting states readable instead of just a bright base.</p>
   </div>
 
   <figure style="max-width:720px">
@@ -85,7 +93,7 @@
         <text x="210" y="275" text-anchor="middle">LEDs inside the tower</text>
         <text x="210" y="294" text-anchor="middle" class="lab">shaft and observation deck</text>
       </g></svg>
-      <figcaption><span class="fig-num">FIG 3</span><b>Data flow.</b> Poll, parse, light.</figcaption>
+      <figcaption><span class="fig-num">FIG 2</span><b>Data flow.</b> The ESP32 polls the page, parses the status, and sets the LEDs.</figcaption>
     </figure>
 
   <section class="tech">
@@ -96,7 +104,7 @@
         <tr><th>CAD</th><td>SolidWorks; 70 x 70 x 203 mm model envelope; STL exported for printing (34k triangles)</td></tr>
         <tr><th>Print</th><td>White resin; base and tower printed separately</td></tr>
         <tr><th>Controller</th><td>ESP32, Wi-Fi, periodic HTTP fetch and parse of the lighting status page</td></tr>
-        <tr><th>Lighting</th><td>LEDs (<em>type / count TBD</em>) mapped to the tower's published configurations</td></tr>
+        <tr><th>Lighting</th><td>A handful of LEDs inside the shaft and base, mapped to the tower's published configurations</td></tr>
         <tr><th>Files</th><td><a href="../assets/models/ut-tower.stl" download>ut-tower.stl</a></td></tr>
       </table>
     </div>

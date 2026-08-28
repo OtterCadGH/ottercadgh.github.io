@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="RC car chassis - William Otterson">
+<meta property="og:description" content="A 3D-printed monocoque RC car chassis designed in SolidWorks for a budget-constrained machine elements team build, carrying a drivetrain salvaged from broken RC cars.">
+<meta property="og:image" content="https://ottercadgh.github.io/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://ottercadgh.github.io/projects/rc-car-chassis.html">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
@@ -32,25 +40,22 @@
     <div><span class="k">Skills</span>SolidWorks, design for FDM, packaging around existing hardware, team integration</div>
   </div>
 
-  <div class="split" style="align-items:stretch">
-    <figure>
-      <img src="../assets/img/rc-chassis-cad.jpg" alt="SolidWorks model of the RC chassis: a long open tub with a front shock tower on four posts, a steering servo pocket, side ribs, and a rear bulkhead with a drivetrain bore">
-      <figcaption><span class="fig-num">FIG 1</span><b>The chassis in SolidWorks.</b> One part: electronics tub, front shock tower on four posts, servo pocket, side ribs with cover mounts, and a rear bulkhead bored for the donor drivetrain.</figcaption>
-    </figure>
+  <figure class="hero-fig">
+    <img src="../assets/img/rc-chassis-cad.jpg" alt="SolidWorks model of the RC chassis: a long open tub with a front shock tower on four posts, a steering servo pocket, side ribs, and a rear bulkhead with a drivetrain bore">
+    <figcaption><span class="fig-num">FIG 1</span><b>The chassis in SolidWorks.</b> One part: electronics tub, front shock tower on four posts, servo pocket, side ribs with cover mounts, and a rear bulkhead bored for the donor drivetrain.</figcaption>
+  </figure>
+
+  <div class="split rev">
+    <div>
+      <h2>Designing around salvage</h2>
+      <p>The tricky part was that nothing bolting to the chassis was ours. Suspension arms, hubs, shocks, the steering linkage, and the rear drivetrain all came from donor cars my teammates pulled apart, so the chassis had to match hole patterns and pivot geometry we measured off broken parts instead of reading them from a drawing.</p>
+      <p>That pushed me toward one monolithic tub instead of a plate-and-bulkhead stack: fewer interfaces to get wrong, and every mount referenced to the same print. The front carries a raised shock tower on four posts and a pocket for the steering servo; the rear bulkhead is bored for the donor drivetrain and takes the wing mounts. Side ribs stiffen the long open bay that holds the ESC, receiver, and battery.</p>
+      <p>Print orientation was part of the design. The tub prints upright on its floor so the long walls are continuous in the direction they bend, and the tower posts are sized to print without support.</p>
+    </div>
     <figure>
       <img src="../assets/img/rc-car.jpg" alt="The finished RC car: teal printed chassis with ESC, receiver, and battery in the tub, donor suspension arms and shocks at both ends, a printed rear wing, and off-road tires">
       <figcaption><span class="fig-num">FIG 2</span><b>Built.</b> Printed tub in teal, donor arms and oil shocks at both ends, ESC and receiver in the bay, printed wing on the rear shock mounts.</figcaption>
     </figure>
-  </div>
-
-  <div class="narrow">
-    <div>
-      <h2>Designing around salvage</h2>
-      <p>The interesting constraint was that nothing bolting to the chassis was ours. Suspension arms, hubs, shocks, the steering linkage, and the rear drivetrain all came from donor cars my teammates pulled apart, so the chassis had to match hole patterns and pivot geometry that we measured off broken parts rather than pulled from a drawing.</p>
-      <p>That pushed me toward one monolithic tub instead of a plate-and-bulkhead stack: fewer interfaces to get wrong, and every mount referenced to the same print. The front carries a raised shock tower on four posts and a pocket for the steering servo; the rear bulkhead is bored for the donor drivetrain and takes the wing mounts. Side ribs stiffen the long open bay that holds the ESC, receiver, and battery.</p>
-      <p>Print orientation was part of the design. The tub prints upright on its floor so the long walls are continuous in the direction they bend, and the tower posts are sized to print without support.</p>
-    </div>
-
   </div>
 
   <section class="tech">

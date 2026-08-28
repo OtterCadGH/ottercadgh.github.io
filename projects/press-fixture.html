@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pneumatic lamination press - William Otterson">
+<meta property="og:description" content="Production-intent pneumatic press with a self-resetting air timer, applying 125 lb for 10 s to bond touchscreen, membrane, and bezel assemblies within 0.05 in.">
+<meta property="og:image" content="https://ottercadgh.github.io/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://ottercadgh.github.io/projects/press-fixture.html">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
@@ -79,14 +87,14 @@
       <polyline points="485,150 485,200 130,200" class="ln dash"/>
       <text x="20" y="240" class="lab">Amber = air. No electrical components in the control path.</text>
     </svg>
-    <figcaption><span class="fig-num">FIG 3</span><b>Control circuit and press stack.</b> The regulator fixes force, the self-resetting pneumatic timer fixes dwell, and the self-locating nest fixes position. Those are the only three things that determine bond quality, and none of them depend on the operator.</figcaption>
+    <figcaption><span class="fig-num">FIG 3</span><b>Control circuit and press stack.</b> The regulator sets force, the timer sets dwell, and the nest sets position, so bond quality does not depend on the operator.</figcaption>
   </figure>
 
   <div class="split rev">
     <div>
       <h2>Why it exists</h2>
       <p>The controller's front assembly is a stack of cosmetic bezel, LED membrane, and touchscreen joined with a 3M structural adhesive that specifies a clamping force and dwell to reach bond strength. The existing approach was manual and inconsistent, so bond quality and part-to-part alignment varied.</p>
-      <p>An electrically timed press would have needed its own electrical validation and maintenance path on the line. The press is therefore fully pneumatic: load the nest, trigger the cycle, the cylinder holds for the timed dwell, the circuit vents and resets itself. Nothing to program, no electrical failure mode to qualify.</p>
+      <p>An electrically timed press would have needed its own electrical validation and maintenance path on the line, so the press is fully pneumatic: load the nest, trigger the cycle, the cylinder holds for the timed dwell, and the circuit vents and resets itself. There is nothing to program and no electrical failure mode to qualify.</p>
     </div>
     <figure>
       <svg viewBox="0 0 820 300" role="img" aria-label="Force versus time profile: rapid rise to 125 pounds, flat hold for 10 seconds, then release and automatic reset.">
@@ -111,14 +119,14 @@
   <div class="split stack">
     <div>
       <h2>Locating, not just holding</h2>
-      <p>The bezel is a cosmetic part with curved faces, so the nest cannot just hold it, it has to locate it. The nest is self-locating: locating pins receive the bezel's own geometry, so the part can only seat one way and it seats in the same place every time. The touchscreen and membrane are captured relative to the bezel, which is what holds its position to &plusmn;0.05 in and keeps the screen and window aligned on every unit.</p>
+      <p>The bezel is a cosmetic part with curved faces, so the nest has to locate it, not just hold it. Locating pins receive the bezel's own geometry, so the part only seats one way and lands in the same place every time. The touchscreen and membrane are captured relative to the bezel, which holds its position to &plusmn;0.05 in and keeps the screen and window aligned on every unit.</p>
       <p>One fixture does two jobs. The mating faces, the printed nest below and the press foot above, are designed to swap, so the same press bonds the touchscreen to the bezel and, with the other face set installed, the LED membrane panel to the bezel. The force, dwell, and alignment scheme stay identical; only the contact geometry changes.</p>
       <p>The design went through several major revisions coordinated with a second engineering site, and shipped as a complete package: drawings and BOMs for both the press and its pneumatic control box, plus a qualification plan of adhesive shear tests and optical alignment checks.</p>
     </div>
     <div>
       <h2>The control box</h2>
       <p>I designed and built the control box as well. Inside is the air logic controller that runs the whole cycle; there is nothing electrical to validate, and the dwell timer is user-adjustable, so the same box covers a different adhesive spec by turning a dial rather than reprogramming anything.</p>
-      <p>Safety is in the logic, not in a procedure. The cycle only fires from two green start buttons spaced so the operator needs both hands on the box, away from the platen, to start a press. An orange emergency stop retracts the slide immediately, regardless of where the timer is in its dwell.</p>
+      <p>The safety is built into the air logic. The cycle only fires from two green start buttons spaced so the operator needs both hands on the box, away from the platen, to start a press, and an orange emergency stop retracts the slide immediately, no matter where the timer is in its dwell.</p>
     </div>
   </div>
 
@@ -139,7 +147,7 @@
         <tr><th>Safety</th><td>Two-hand start (both green buttons) keeps the operator clear of the platen; orange emergency stop retracts the slide regardless of timer state</td></tr>
         <tr><th>Documentation</th><td>Full drawings and BOMs for the press and the pneumatic control box</td></tr>
         <tr><th>Qualification plan</th><td>Adhesive shear testing plus optical alignment checks on laminated assemblies</td></tr>
-        <tr><th>Status at handoff</th><td>Working prototype, validated force profile, adopted by the assembly line as of my departure</td></tr>
+        <tr><th>Status at handoff</th><td>Working prototype with a validated force profile, handed off with full drawings and BOMs for line adoption. My printed mating faces were stand-ins for machined Delrin production versions, and the design likely saw further revision by senior engineers before reaching the line</td></tr>
       </table>
     </div>
   </section>

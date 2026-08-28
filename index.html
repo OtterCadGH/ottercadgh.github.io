@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="William Otterson - Mechanical Engineering">
+<meta property="og:description" content="Portfolio of William Otterson, mechanical engineering student at UT Austin. Test rigs, production fixtures, and embedded hardware.">
+<meta property="og:image" content="https://ottercadgh.github.io/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://ottercadgh.github.io/">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
@@ -23,7 +31,7 @@
     <div>
       <div class="eyebrow">Mechanical engineer &middot; UT Austin '27 &middot; Austin, TX</div>
       <h1>Hardware that has to work.</h1>
-      <p>I build test rigs, production fixtures, and small embedded devices, and I put a number on every claim. Medical device R&amp;D background at Smith+Nephew and International Biomedical.</p>
+      <p>I build test rigs, production fixtures, and small embedded devices. Most of that has been in medical device R&amp;D at Smith+Nephew and International Biomedical.</p>
       <div class="cta"><a class="p" href="#work">View projects</a><a class="s" href="assets/WilliamOtterson_Resume.pdf" target="_blank" rel="noopener">Download resume</a></div>
       <div class="meta-row">
         <div>Focus<b>Test &amp; fixture design</b></div>
@@ -47,18 +55,18 @@
 
     <a class="card" href="projects/press-fixture.html">
       <div class="img"><img src="assets/video/press-fixture-demo-2-poster.jpg" alt="Pneumatic lamination press, side view" style="object-position:center 55%"></div>
-      <div class="body"><div class="k">Smith+Nephew</div><h3>Pneumatic lamination press</h3><p>All-pneumatic, self-resetting press for touchscreen and bezel assemblies. Drawings and BOMs handed off for line adoption.</p><div class="chips"><span>fixtures</span><span>surfacing</span><span>DFM</span></div></div>
+      <div class="body"><div class="k">Smith+Nephew</div><h3>Pneumatic lamination press</h3><p>All-pneumatic, self-resetting press for touchscreen and bezel assemblies. Drawings and BOMs handed off for line adoption.</p><div class="chips"><span>fixtures</span><span>pneumatic logic</span><span>DFM</span></div></div>
     </a>
 
     <a class="card" href="projects/ti-nspire-internet-link.html">
       <div class="img"><img src="assets/img/nspire-v2-underside.jpg" alt="V2 nternet-Link adapter with the shell open"></div>
-      <div class="body"><div class="k">Personal &middot; open hardware</div><h3>nternet-Link</h3><p>The hardware side of an open platform that puts a TI-Nspire on the network: four generations of plug-in adapters, printed shells, and a 40 x 15 mm custom PCB, with a community that now writes the firmware. 38 stars.</p><div class="chips"><span>ESP32 hardware</span><span>KiCad</span><span>packaging</span><span>community</span></div></div>
+      <div class="body"><div class="k">Personal &middot; open hardware</div><h3>nternet-Link</h3><p>The hardware side of an open platform that puts a TI-Nspire on the network: four generations of plug-in adapters, printed shells, and a 40 x 15 mm custom PCB, with a community that now writes the firmware. 39 stars.</p><div class="chips"><span>ESP32 hardware</span><span>KiCad</span><span>packaging</span><span>community</span></div></div>
     </a>
 
     
 
     <a class="card big" href="projects/ut-tower-ornament.html">
-      <div class="img"><img src="assets/img/tower-trio.jpg" alt="UT Tower desk model: unlit, lit white, lit burnt orange"></div>
+      <div class="img"><img src="assets/img/tower-trio.jpg" alt="UT Tower project: source blueprint, printed model, and the model lit burnt orange after a win" style="object-position:center top"></div>
       <div class="body"><div class="k">Personal &middot; CAD + embedded</div><h3>IoT UT Tower ornament</h3><p>Modeled from the original blueprints in SolidWorks and resin printed; an ESP32 in the base polls the university's lighting page and lights the model to match. Interactive 3D model on the page.</p><div class="chips"><span>SolidWorks</span><span>ESP32</span><span>resin printing</span><span>3D viewer</span></div></div>
     </a>
 
@@ -74,7 +82,7 @@
 
     <a class="card" href="projects/overdose-response-device.html">
       <div class="img"><img src="assets/img/overdose-prototype.jpg" alt="Overdose response device first prototype with two LCDs" style="object-position:center 45%"></div>
-      <div class="body"><div class="k">Personal</div><h3>Overdose emergency aid device</h3><p>ESP8266 with a MAX30100 and a microphone, scoring pulse, SpO2, and breathing into a risk score that drives Narcan prompts on an LCD.</p><div class="chips"><span>ESP8266</span><span>MAX30100</span><span>risk scoring</span></div></div>
+      <div class="body"><div class="k">Personal</div><h3>Overdose emergency aid device</h3><p>A MAX30100 and a microphone, scoring pulse, SpO2, and breathing into a risk score that drives Narcan prompts on an LCD. Two builds: Arduino Nano, then ESP8266.</p><div class="chips"><span>ESP8266</span><span>MAX30100</span><span>risk scoring</span></div></div>
     </a>
   </div>
 
@@ -91,7 +99,7 @@
       <ul class="exp">
         <li><div><b>International Biomedical</b><span>Mechanical Engineering Intern, Austin, TX</span></div><i>May 2026 - now</i></li>
         <li><div><b>Smith+Nephew</b><span>R&amp;D Engineer Co-op, ENT, Austin, TX</span></div><i>Jun - Dec 2025</i></li>
-        <li><div><b>MINIMAX Lab, UT Austin</b><span>Research Assistant, piezoelectric micropumps</span></div><i>Aug 2024 - Apr 2026</i></li>
+        <li><div><b>MINIMAX Lab, UT Austin</b><span>Research Assistant, micropumps + textbook storyboards &middot; <a href="projects/minimax-micropumps.html">details</a></span></div><i>Aug 2024 - Apr 2026</i></li>
         <li><div><b>GoPro</b><span>Product Evaluation Tester, Maui, HI</span></div><i>Jan - Mar 2022</i></li>
       </ul>
     </div>

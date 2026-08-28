@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Connector lifetime test rig - William Otterson">
+<meta property="og:description" content="Automated pneumatic plug/unplug cycler with Hall-effect stroke verification, built to quantify receptacle wear over 7,500 cycles.">
+<meta property="og:image" content="https://ottercadgh.github.io/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://ottercadgh.github.io/projects/connector-cycler.html">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
@@ -21,7 +29,7 @@
 
   <div class="phead">
     <div class="eyebrow">Smith+Nephew &middot; R&amp;D Engineer Co-op &middot; 2025</div>
-    <h1>A cycler that only counts what it can prove</h1>
+    <h1>A rig that plugs in a connector 7,500 times</h1>
     <p class="lede">An automated plug/unplug rig that quantified receptacle wear on a new electrosurgical controller: 7,500 verified cycles per receptacle, unattended, when no test system for it existed.</p>
   </div>
 
@@ -87,7 +95,7 @@
       <polyline points="590,270 590,335 35,335 35,100 60,100" class="ln dash"/>
       <text x="330" y="327" text-anchor="middle" class="lab">stroke confirmation</text>
     </svg>
-    <figcaption><span class="fig-num">FIG 2</span><b>System architecture.</b> Amber lines are air, dashed lines are signals. The two Hall sensors are the point of the design: a stroke that does not trip both is never counted, so every number in the wear data corresponds to a full engagement and a full retraction.</figcaption>
+    <figcaption><span class="fig-num">FIG 2</span><b>System architecture.</b> Amber lines are air, dashed lines are signals. The two Hall sensors matter most: a stroke that does not trip both is never counted, so every number in the wear data is a full engagement and a full retraction.</figcaption>
   </figure>
 
   <div class="narrow">
@@ -135,7 +143,7 @@
     <h2>Technical details</h2>
     <div class="inner">
       <p>A double-acting pneumatic slide provides the linear motion. Four ASCO solenoid valves, two supply and two exhaust, are switched through a relay bank so each direction has its own controlled fill and vent. Flow regulators on each side set stroke speed independently, which is how insertion was tuned to feel like a human plug-in rather than a slam. The receptacle sits on a spring mount so it can float slightly during engagement and the plug finds its own alignment.</p>
-      <p>The controller is an Arduino Nano ESP32 on a custom KiCad board that replaced the original breadboard harness once the logic was proven. Firmware sequences the valves, reads both Hall sensors, and only increments the counter when a stroke is confirmed at both ends. An LCD shows direction, pause state, Hall status, and cycle count.</p>
+      <p>The controller is an Arduino Nano ESP32 on a custom KiCad board that replaced the original breadboard harness once the logic was proven. Firmware sequences the valves, reads both Hall sensors, and only increments the counter when a stroke is confirmed at both ends. An LCD shows direction, pause state, Hall status, and cycle count. The Nano ESP32 was chosen for its Wi-Fi: the plan was for the rig to email me when a run finished. The bench it ended up on was a short walk from my desk, so that feature never needed to be written, but the connectivity is there.</p>
       <table class="spec">
         <tr><th>Actuation</th><td>Pneumatic air slide, double-acting, speed set by inline flow regulators</td></tr>
         <tr><th>Valving</th><td>4x ASCO solenoid valves (2 supply, 2 exhaust) driven by a 4-channel relay bank</td></tr>

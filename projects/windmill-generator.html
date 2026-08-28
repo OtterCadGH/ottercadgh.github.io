@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Windmill generator and indicator circuit - William Otterson">
+<meta property="og:description" content="Mechatronics lab project: a wind turbine generator with AC-to-DC conversion and an analog indicator circuit that flags too slow, too fast, and speed by brightness.">
+<meta property="og:image" content="https://ottercadgh.github.io/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://ottercadgh.github.io/projects/windmill-generator.html">
+<meta name="twitter:card" content="summary_large_image">
 <script src="../assets/js/model-viewer.min.js" defer></script>
 </head>
 <body>
@@ -23,14 +31,14 @@
   <div class="phead">
     <div class="eyebrow">UT Austin, ME 140L Mechatronics Lab &middot; solo project</div>
     <h1>A printed vertical-axis turbine that tells you when it's spinning wrong</h1>
-    <p class="lede">A wind-powered generator with an AC-to-DC conversion stage and an analog indicator circuit that lights "too slow," "too fast," and a lamp whose brightness tracks speed. The lab supplied a generator and a stock propeller; I designed and printed a helical vertical-axis turbine and a tripod stand for it instead, then characterized the system at three wind speeds.</p>
+    <p class="lede">A wind-powered generator with an AC-to-DC conversion stage and an analog indicator circuit that lights "too slow," "too fast," and a lamp whose brightness tracks speed. The lab supplied a generator and a stock propeller; I designed and printed a helical vertical-axis turbine and a tripod stand for it instead.</p>
   </div>
 
   <div class="glance">
-    <div><span class="k">Outcome</span><b>Working turbine and indicator system</b>, demonstrated live on a custom-printed vertical-axis rotor, documented with data at three wind speeds</div>
-    <div><span class="k">My role</span>Solo: turbine and stand CAD and printing, rectifier, comparator and gate logic, Multisim model, data collection</div>
+    <div><span class="k">Outcome</span><b>Working turbine and indicator system</b>, demonstrated live on a custom-printed vertical-axis rotor</div>
+    <div><span class="k">My role</span>Solo: turbine and stand CAD and printing, rectifier, comparator thresholds, Multisim model, data collection</div>
     <div><span class="k">Constraints</span>Discrete components only (resistors, diodes, comparators, transistors, LEDs); provided generator; three-week lab window; extra credit only for electrical features, so the turbine was for me</div>
-    <div><span class="k">Skills</span>Analog circuit design, rectification and filtering, comparator thresholds, Multisim, experimental characterization, turbine CAD and FDM printing</div>
+    <div><span class="k">Skills</span>Analog circuit design, rectification and filtering, LM339 comparators, Multisim, experimental characterization, turbine CAD and FDM printing</div>
   </div>
 
   <div class="split" style="align-items:stretch">
@@ -47,46 +55,40 @@
   <div class="split stack">
     <div>
       <h2>The spec</h2>
-      <p>The generator is a permanent-magnet machine, so its output is AC with a voltage that rises with shaft speed. The assignment required converting that to DC and building an indicator system with three behaviors: a light that comes on when the turbine is not spinning fast enough, a light that comes on when it is spinning too fast, and a light whose intensity increases continuously with speed. Everything had to be built from discrete parts, modeled first in Multisim, and characterized with data at three wind speeds.</p>
-      <p>The rectified generator voltage is the speed signal. Comparators measure it against reference levels derived from a bench 12 V supply, which only provides the comparison voltages and does not power the indicator circuit. The comparator outputs feed simple logic gates so that exactly one indication is lit at a time: too slow, in range, or too fast, with the brightness lamp driven from the rectified bus directly so it tracks speed continuously.</p>
+      <p>The generator is a permanent-magnet machine, so its output is AC with a voltage that rises with shaft speed. The assignment asked for that to be converted to DC and turned into an indicator system with three behaviors: a light for spinning too slowly, a light for spinning too fast, and a light whose brightness rises with speed. Everything had to be built from discrete parts and modeled first in Multisim.</p>
+      <p>The rectified voltage, V_motor, is the speed signal: faster rotor, higher DC. A full-bridge rectifier (four 1N4002s, carried over from an earlier lab) and a 10 uF cap turn the AC into that signal. Two channels of an LM339 compare V_motor against two thresholds, each set with a 10 kOhm pot: red comes on under speed, yellow comes on over speed. The green indicator skips the comparators entirely and hangs off V_motor through a 330 Ohm resistor, so its brightness just follows speed. Calibration happened at the fan: spin at the slowest acceptable speed and trim POT1 until red just turns off, spin at the fastest and trim POT2 until yellow just turns on.</p>
     </div>
     <figure>
-      <svg viewBox="0 0 820 410" role="img" aria-label="Signal chain: turbine generator AC output, rectifier and filter to DC; a bench 12 V supply provides reference voltages only; two comparators test the DC bus against low and high references; gate logic lights exactly one of too slow, in range, too fast; a separate branch drives a brightness LED from the DC bus.">
+      <svg viewBox="0 0 820 392" role="img" aria-label="Signal chain: turbine generator AC output into a full-bridge rectifier with smoothing cap producing V_motor; two LM339 comparators test V_motor against pot-set low and high thresholds to drive the red under-speed and yellow over-speed LEDs; a direct branch through a 330 ohm resistor drives the green LED whose brightness tracks speed.">
         <rect x="280" y="16" width="260" height="52" class="box" rx="3"/>
         <text x="410" y="38" text-anchor="middle">Turbine generator</text>
         <text x="410" y="56" text-anchor="middle" class="lab">AC, amplitude rises with speed</text>
         <line x1="410" y1="68" x2="410" y2="96" class="ln"/>
         <rect x="280" y="96" width="260" height="52" class="box acc" rx="3"/>
-        <text x="410" y="118" text-anchor="middle">Rectifier + filter</text>
-        <text x="410" y="136" text-anchor="middle" class="lab">DC bus = speed signal</text>
+        <text x="410" y="118" text-anchor="middle">Full-bridge rectifier + 10 uF</text>
+        <text x="410" y="136" text-anchor="middle" class="lab">4x 1N4002; DC out = V_motor</text>
         <rect x="590" y="96" width="210" height="52" class="box" rx="3"/>
-        <text x="695" y="118" text-anchor="middle">Bench 12 V supply</text>
-        <text x="695" y="136" text-anchor="middle" class="lab">reference only</text>
+        <text x="695" y="118" text-anchor="middle">Bench supply</text>
+        <text x="695" y="136" text-anchor="middle" class="lab">powers the LM339, 7 V minimum</text>
         <line x1="410" y1="148" x2="410" y2="176" class="ln"/>
-        <line x1="120" y1="176" x2="700" y2="176" class="ln"/>
-        <line x1="120" y1="176" x2="120" y2="206" class="ln"/><line x1="410" y1="176" x2="410" y2="206" class="ln"/><line x1="700" y1="176" x2="700" y2="206" class="ln"/>
-        <line x1="695" y1="148" x2="695" y2="160" class="ln dash"/><line x1="200" y1="160" x2="695" y2="160" class="ln dash"/><line x1="200" y1="160" x2="200" y2="206" class="ln dash"/><line x1="620" y1="160" x2="620" y2="206" class="ln dash"/>
-        <rect x="20" y="206" width="220" height="56" class="box" rx="3"/>
-        <text x="130" y="228" text-anchor="middle">Comparator, low</text>
-        <text x="130" y="246" text-anchor="middle" class="lab">DC bus vs V_low reference</text>
-        <rect x="300" y="206" width="220" height="56" class="box" rx="3"/>
-        <text x="410" y="228" text-anchor="middle">Brightness branch</text>
-        <text x="410" y="246" text-anchor="middle" class="lab">LED driven from the DC bus</text>
-        <rect x="580" y="206" width="220" height="56" class="box" rx="3"/>
-        <text x="690" y="228" text-anchor="middle">Comparator, high</text>
-        <text x="690" y="246" text-anchor="middle" class="lab">DC bus vs V_high reference</text>
-        <line x1="130" y1="262" x2="130" y2="320" class="ln"/><line x1="130" y1="320" x2="200" y2="320" class="ln"/><line x1="690" y1="262" x2="690" y2="320" class="ln"/><line x1="620" y1="320" x2="690" y2="320" class="ln"/>
-        <rect x="200" y="298" width="420" height="44" class="box acc" rx="3"/>
-        <text x="410" y="318" text-anchor="middle">Logic gates</text>
-        <text x="410" y="334" text-anchor="middle" class="lab">exactly one indicator on at a time</text>
-        <line x1="260" y1="342" x2="260" y2="357" class="ln"/><line x1="410" y1="342" x2="410" y2="357" class="ln"/><line x1="560" y1="342" x2="560" y2="357" class="ln"/>
-        <circle cx="260" cy="368" r="11" class="box acc"/><text x="260" y="394" text-anchor="middle" class="lab">TOO SLOW</text>
-        <circle cx="410" cy="368" r="11" class="box acc"/><text x="410" y="394" text-anchor="middle" class="lab">IN RANGE</text>
-        <circle cx="560" cy="368" r="11" class="box acc"/><text x="560" y="394" text-anchor="middle" class="lab">TOO FAST</text>
-        <line x1="410" y1="262" x2="410" y2="271" class="ln"/>
-        <circle cx="410" cy="280" r="9" class="box acc"/><text x="450" y="284" class="lab">BRIGHTNESS LED</text>
+        <line x1="130" y1="176" x2="690" y2="176" class="ln"/>
+        <line x1="130" y1="176" x2="130" y2="206" class="ln"/><line x1="410" y1="176" x2="410" y2="206" class="ln"/><line x1="690" y1="176" x2="690" y2="206" class="ln"/>
+        <rect x="20" y="206" width="220" height="60" class="box" rx="3"/>
+        <text x="130" y="230" text-anchor="middle">LM339, channel A</text>
+        <text x="130" y="248" text-anchor="middle" class="lab">V_motor vs V_low, 10 k POT1</text>
+        <rect x="300" y="206" width="220" height="60" class="box" rx="3"/>
+        <text x="410" y="230" text-anchor="middle">Direct branch</text>
+        <text x="410" y="248" text-anchor="middle" class="lab">V_motor through R3, 330 Ohm</text>
+        <rect x="580" y="206" width="220" height="60" class="box" rx="3"/>
+        <text x="690" y="230" text-anchor="middle">LM339, channel B</text>
+        <text x="690" y="248" text-anchor="middle" class="lab">V_high vs V_motor, 10 k POT2</text>
+        <line x1="130" y1="266" x2="130" y2="296" class="ln"/><line x1="410" y1="266" x2="410" y2="296" class="ln"/><line x1="690" y1="266" x2="690" y2="296" class="ln"/>
+        <circle cx="130" cy="307" r="11" class="box acc"/><text x="130" y="336" text-anchor="middle" class="lab">RED: UNDER SPEED</text>
+        <circle cx="410" cy="307" r="11" class="box acc"/><text x="410" y="336" text-anchor="middle" class="lab">GREEN: BRIGHTNESS = SPEED</text>
+        <circle cx="690" cy="307" r="11" class="box acc"/><text x="690" y="336" text-anchor="middle" class="lab">YELLOW: OVER SPEED</text>
+        <text x="410" y="374" text-anchor="middle" class="lab">set at the fan: POT1 until red just turns off at minimum speed, POT2 until yellow just turns on at maximum</text>
       </svg>
-      <figcaption><span class="fig-num">FIG 3</span><b>Signal chain.</b> One rectified bus feeds two comparators and the brightness lamp; the 12 V bench supply only sets the reference levels. Gate logic makes the three indicators mutually exclusive, which also covers the extra-credit "in range" light.</figcaption>
+      <figcaption><span class="fig-num">FIG 3</span><b>Signal chain.</b> One rectified signal, three indicators: two LM339 channels with pot-set thresholds for the red and yellow lights, and a direct branch for the green one. The LM339 outputs are open-collector, so each LED pulls through a 330 Ohm resistor from the supply.</figcaption>
     </figure>
   </div>
 
@@ -100,19 +102,19 @@
   </div>
   <figcaption style="margin-bottom:44px"><span class="fig-num">FIG 4</span><b>The helical rotor, as modeled.</b> Two blades twisted through the height so torque stays smooth through the rotation and the turbine self-starts from any wind direction. Printed in one piece with the generator hub in the center.</figcaption>
 
-  <p class="narrow"><em>Still to add: the three fan speeds tested with the DC voltage at each, and the two threshold voltages.</em></p>
-
   <section class="tech">
     <h2>Technical details</h2>
     <div class="inner">
       <table class="spec">
         <tr><th>Generator</th><td>Provided permanent-magnet generator, mounted in the hub of a custom rotor</td></tr>
         <tr><th>Rotor</th><td>Two-blade helical vertical-axis turbine and tripod stand, designed and FDM printed by me</td></tr>
-        <tr><th>Conversion</th><td>Rectifier and filter on the generator output; the resulting DC bus is the speed signal</td></tr>
-        <tr><th>Indicators</th><td>Two comparators against references from a bench 12 V supply (reference only); logic gates so only one of too slow, in range, too fast is lit; brightness LED driven from the DC bus</td></tr>
+        <tr><th>Conversion</th><td>Full-bridge rectifier, four 1N4002 diodes, with a 10 uF smoothing cap; the DC output V_motor is the speed signal</td></tr>
+        <tr><th>Indicators</th><td>LM339 quad comparator, two channels used: red under-speed LED against V_low, yellow over-speed LED against V_high, both thresholds set by 10 kOhm pots; green LED driven straight from V_motor through 330 Ohm, brightness tracks speed</td></tr>
+        <tr><th>Supply</th><td>Bench supply for the LM339 and threshold pots; the chip needed at least 7 V to behave with this signal range</td></tr>
         <tr><th>Modeling</th><td>Multisim before build</td></tr>
-        <tr><th>Data</th><td>Three fan speeds; <em>voltages to add</em></td></tr>
       </table>
+      <h3>What I would fix</h3>
+      <p>Two things cost me time on the bench. The green indicator was supposed to run through a transistor for a wider brightness range, and I never got that stage biased right, so the LED runs straight off V_motor and only lights above about 2 V. And the indicator circuit needed at least 7 V of supply; I fed it 5 V for a long while and chased phantom problems in the circuit around the LM339 before checking what the chip actually wanted. Budget the supply voltages first, then debug.</p>
     </div>
   </section>
 

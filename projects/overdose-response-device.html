@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Overdose emergency aid device - William Otterson">
+<meta property="og:description" content="Prototype device that fuses pulse, blood oxygen, and acoustic breathing sensing to detect an opioid overdose and guide a bystander through Narcan and an emergency call.">
+<meta property="og:image" content="https://ottercadgh.github.io/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://ottercadgh.github.io/projects/overdose-response-device.html">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
@@ -29,19 +37,19 @@
     <div><span class="k">Outcome</span><b>Working bench prototype</b>: three sensor inputs aggregated into a risk score that selects what the bystander is told to do. Not a medical device, not clinically validated</div>
     <div><span class="k">My role</span>Designer and builder: sensor selection, detection logic, firmware, enclosure, prompt flow</div>
     <div><span class="k">Constraints</span>Must not trip on one noisy signal; prompts must be followable by someone who has never seen Narcan</div>
-    <div><span class="k">Skills</span>ESP8266 firmware, MAX30100 pulse oximetry, audio sampling, risk scoring, LCD and alert hardware</div>
+    <div><span class="k">Skills</span>Embedded firmware (Arduino Nano, then ESP8266), MAX30100 pulse oximetry, audio sampling, risk scoring, LCD and alert hardware</div>
   </div>
 
   <figure class="hero-fig" style="max-width:820px">
     <img src="../assets/img/overdose-prototype.jpg" alt="First prototype of the overdose response device: a white printed enclosure with two 16x2 LCDs on the right, and on the left a breadboard with the microcontroller, MAX30100 pulse oximeter breakout, three status LEDs, a buzzer, and a pushbutton">
-    <figcaption><span class="fig-num">FIG 1</span><b>The first prototype, powered off.</b> Two 16x2 character LCDs: the top one reads out live vitals, the bottom one gives the bystander their next instruction. The MAX30100 breakout is at top left with the button, and the LEDs and buzzer sit on the main breadboard. It looks like a box with two screens because that is exactly what a first prototype should be.</figcaption>
+    <figcaption><span class="fig-num">FIG 1</span><b>The first prototype, powered off.</b> Two 16x2 character LCDs: the top one reads out live vitals, the bottom one gives the bystander their next instruction. The MAX30100 breakout is at top left with the button, and the LEDs and buzzer sit on the main breadboard. </figcaption>
   </figure>
 
   <div class="split stack">
     <div>
       <h2>Why it exists</h2>
       <p>Opioid overdoses are survivable if someone nearby recognizes what is happening and acts within minutes: give naloxone, call emergency services, support breathing. The failure is usually recognition and hesitation, not availability of the drug. I wanted a device that removes both, by detecting the physiological signature automatically and then giving the person in the room one instruction at a time.</p>
-      <p>Respiratory depression is the defining sign, so a microphone records the breathing pattern, and a MAX30100 supplies pulse rate and SpO2. An ESP8266 combines the three into an aggregate risk score, and that score, not any single reading, decides which instructions the secondary user (the person administering Narcan) is given.</p>
+      <p>Respiratory depression is the defining sign, so a microphone records the breathing pattern, and a MAX30100 supplies pulse rate and SpO2. The microcontroller combines the three into an aggregate risk score, and that score, not any single reading, decides which instructions the secondary user (the person administering Narcan) is given. The first prototype, the one in the photo, ran on an Arduino Nano; a second build moved to an ESP8266 for Wi-Fi, which is what makes the simulated emergency call possible.</p>
     </div>
     <figure>
       <svg viewBox="0 0 820 230" role="img" aria-label="Detection and response flow: pulse, SpO2, and acoustic breathing sensors feed microcontroller fusion logic, which moves through monitoring, suspected event, and confirmed event states, then drives prompts for alerting, Narcan steps, and calling emergency services.">
@@ -49,7 +57,7 @@
         <rect x="10" y="90" width="150" height="40" class="box" rx="3"/><text x="85" y="115" text-anchor="middle">SpO2, MAX30100</text>
         <rect x="10" y="150" width="150" height="40" class="box" rx="3"/><text x="85" y="169" text-anchor="middle">Breathing</text><text x="85" y="183" text-anchor="middle" class="lab">microphone</text>
         <rect x="195" y="60" width="170" height="100" class="box acc" rx="3"/>
-        <text x="280" y="95" text-anchor="middle">ESP8266</text>
+        <text x="280" y="95" text-anchor="middle">Microcontroller</text>
         <text x="280" y="113" text-anchor="middle" class="lab">aggregate risk score</text>
         <text x="280" y="129" text-anchor="middle" class="lab">from all three inputs</text>
         <line x1="160" y1="50" x2="200" y2="85" class="ln"/><line x1="160" y1="110" x2="200" y2="110" class="ln"/><line x1="160" y1="170" x2="200" y2="135" class="ln"/>
@@ -70,17 +78,17 @@
   </div>
 
 
-  <p class="narrow">The hard part was not reading the sensors, it was deciding when to believe them. A pulse oximeter on a moving person produces plenty of false drops, and a microphone in a room hears a lot that is not breathing. Scoring the three together, rather than acting on any one of them, is what made the prototype usable, and it is the same lesson I later applied to counting cycles on a test rig: only count what you have confirmed.</p>
+  <p class="narrow">The hard part was not reading the sensors, it was deciding when to believe them. A pulse oximeter on a moving person produces plenty of false drops, and a microphone in a room hears a lot that is not breathing. Scoring the three together, instead of acting on any one of them, is what made the prototype usable.</p>
 
   <section class="tech">
     <h2>Technical details</h2>
     <div class="inner">
       <table class="spec">
         <tr><th>Sensing</th><td>MAX30100 pulse oximeter for pulse rate and SpO2; microphone recording the breathing pattern</td></tr>
-        <tr><th>Controller</th><td>ESP8266; firmware aggregates the three inputs into a risk score that selects the instruction set</td></tr>
-        <tr><th>Output</th><td>Two 16x2 character LCDs: live readings on one, step-by-step Narcan prompts on the other; mini buzzer and LEDs for the alert; simulated 911 call over Wi-Fi (dummy endpoint, intentionally not live)</td></tr>
+        <tr><th>Controller</th><td>Arduino Nano in the first prototype (photographed above); a second build moved to an ESP8266 for Wi-Fi. Firmware aggregates the three inputs into a risk score that selects the instruction set</td></tr>
+        <tr><th>Output</th><td>Two 16x2 character LCDs: live readings on one, step-by-step Narcan prompts on the other; mini buzzer and LEDs for the alert; simulated 911 call over Wi-Fi on the ESP8266 build (dummy endpoint, intentionally not live)</td></tr>
         <tr><th>Enclosure</th><td>3D printed</td></tr>
-        <tr><th>Status</th><td>Working first prototype, since partly disassembled for parts. Not a medical device; not clinically validated</td></tr>
+        <tr><th>Status</th><td>Two working prototypes (Nano, then ESP8266), since partly disassembled for parts; no photos of the ESP8266 build survive. Not a medical device; not clinically validated</td></tr>
       </table>
     </div>
   </section>
