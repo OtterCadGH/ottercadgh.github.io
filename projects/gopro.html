@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product evaluation, GoPro - William Otterson</title>
+<meta name="description" content="Field testing a pre-release GoPro accessory prototype on Maui that shipped as the GoPro Volta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Product evaluation, GoPro - William Otterson">
+<meta property="og:description" content="Field testing a pre-release GoPro accessory prototype on Maui that shipped as the GoPro Volta.">
+<meta property="og:image" content="https://ottercadgh.github.io/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://ottercadgh.github.io/projects/gopro.html">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html"><i></i>William Otterson</a>
+  <nav><a class="on" href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="#" data-contact>Contact</a><a class="btn" href="../assets/WilliamOtterson_Resume.pdf" target="_blank" rel="noopener">Resume</a></nav>
+</div></header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="eyebrow">GoPro &middot; Product Evaluation Tester &middot; Jan to Mar 2022, Maui, HI</div>
+    <h1>Field testing what became the GoPro Volta</h1>
+    <p class="lede">A short early gig, and my first taste of structured product development: field testing a functional pre-release accessory prototype for GoPro and feeding usability findings back to the team before launch.</p>
+  </div>
+
+  <div class="narrow">
+    <p>GoPro placed a working prototype of an unreleased accessory with testers on Maui, and I put it through real use: surf, sand, salt water, and everyday handling, the environment the product was actually built for. My job was to report structured usability feedback, what worked, what fought me, what broke and how, in a form the development team could act on. The product shipped as the GoPro Volta.</p>
+    <p>It was a small role, but it is where I first saw the loop I now work inside from the other end: prototype, put it in real conditions, write down what actually happened, change the design.</p>
+  </div>
+
+  <section class="tech">
+    <h2>Technical details</h2>
+    <div class="inner">
+      <table class="spec">
+        <tr><th>Product</th><td>Pre-release functional accessory prototype; shipped as the GoPro Volta</td></tr>
+        <tr><th>My role</th><td>Field testing in real conditions on Maui; structured usability reporting ahead of launch</td></tr>
+        <tr><th>Duration</th><td>January to March 2022</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <div class="pn">
+    <a href="../index.html#about">&larr; Back to about</a>
+    <a href="../index.html#work">All work &rarr;</a>
+  </div>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/williamwotterson">LinkedIn</a> &middot; <a href="https://github.com/OtterCadGH">GitHub</a></span>
+  <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
+</div></footer>
+
+
+<dialog id="contact-dlg">
+  <h3>Contact</h3>
+  <p class="cd-row"><span>Email</span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a></p>
+  <p class="cd-row"><span>Phone</span><a href="tel:+18087405886">(808) 740 5886</a></p>
+  <p class="cd-row"><span>LinkedIn</span><a href="https://www.linkedin.com/in/williamwotterson" target="_blank" rel="noopener">in/williamwotterson</a></p>
+  <button id="contact-close" type="button">Close</button>
+</dialog>
+<script>
+(function(){
+  var d = document.getElementById('contact-dlg');
+  document.querySelectorAll('a[data-contact]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); d.showModal(); });
+  });
+  document.getElementById('contact-close').addEventListener('click', function(){ d.close(); });
+  d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+})();
+</script>
+</body>
+</html>
