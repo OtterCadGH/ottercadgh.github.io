@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>William Otterson - Maschinenbau</title>
+<meta name="description" content="Portfolio von William Otterson, Maschinenbaustudent an der UT Austin. Prüfstände, Produktionsvorrichtungen und Embedded-Hardware.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="William Otterson - Maschinenbau">
+<meta property="og:description" content="Portfolio von William Otterson, Maschinenbaustudent an der UT Austin. Prüfstände, Produktionsvorrichtungen und Embedded-Hardware.">
+<meta property="og:image" content="https://ottercadgh.github.io/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://ottercadgh.github.io/de/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="en" href="https://ottercadgh.github.io/">
+<link rel="alternate" hreflang="de" href="https://ottercadgh.github.io/de/index.html">
+</head>
+<body>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html"><i></i>William Otterson</a>
+  <nav><a class="on" href="#work">Arbeiten</a><a href="#about">Über mich</a><a href="#" data-contact>Kontakt</a><a class="btn" href="../assets/WilliamOtterson_Resume.pdf" target="_blank" rel="noopener">Lebenslauf</a></nav>
+</div></header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Maschinenbauingenieur &middot; UT Austin '27 &middot; Austin, TX</div>
+      <h1>Hardware, die funktionieren muss.</h1>
+      <p>Ich baue Prüfstände, Produktionsvorrichtungen und kleine Embedded-Geräte. Das meiste davon entstand in der Medizingeräte-Entwicklung bei Smith+Nephew und International Biomedical.</p>
+      <div class="cta"><a class="p" href="#work">Projekte ansehen</a><a class="s" href="../assets/WilliamOtterson_Resume.pdf" target="_blank" rel="noopener">Lebenslauf herunterladen</a></div>
+      <div class="meta-row">
+        <div>Schwerpunkt<b>Prüf- &amp; Vorrichtungskonstruktion</b></div>
+        <div>Werkzeuge<b>SolidWorks &middot; KiCad &middot; ESP32</b></div>
+        <div>Status<b>Offen für Vollzeit ab 2027</b></div>
+      </div>
+    </div>
+    <div class="slot r43">
+      <span class="tag">Pneumatische Laminierpresse</span>
+      <a href="projects/press-fixture.html"><img src="../assets/img/press-fixture.jpg" alt="Pneumatische Laminierpresse auf der Werkbank mit ihrer vollpneumatischen Steuerbox" style="object-position:center 58%"></a>
+    </div>
+  </section>
+
+  <div class="sec" id="work"><h2>Ausgewählte Arbeiten</h2><a href="#about">Über mich &rarr;</a></div>
+  <div class="grid">
+
+    <a class="card big" href="projects/connector-cycler.html">
+      <div class="img"><img src="../assets/img/cycler-rig.jpg" alt="Steckzyklen-Prüfstand: Luftschlitten, Hall-Sensoren, Magnetventile, Relaisbank, LCD und Controller"></div>
+      <div class="body"><div class="k">Smith+Nephew</div><h3>Automatisierter Prüfstand für die Lebensdauer von Steckverbindern</h3><p>Pneumatischer Steck- und Ziehzykler mit Hubkontrolle über Hall-Sensoren, einer eigenen KiCad-Platine und automatischer Pause für den Steckerwechsel. Hat den Buchsenverschleiß über 7.500 Zyklen quantifiziert und in Vorversuchen eine vom Lieferanten getauschte Feder aufgedeckt.</p><div class="chips"><span>Pneumatik</span><span>KiCad</span><span>Arduino Nano ESP32</span><span>Testautomatisierung</span></div></div>
+    </a>
+
+    <a class="card" href="projects/press-fixture.html">
+      <div class="img"><img src="../assets/video/press-fixture-demo-2-poster.jpg" alt="Pneumatische Laminierpresse, Seitenansicht" style="object-position:center 55%"></div>
+      <div class="body"><div class="k">Smith+Nephew</div><h3>Pneumatische Laminierpresse</h3><p>Vollpneumatische, selbstrückstellende Presse für Touchscreen- und Blendenbaugruppen. Zeichnungen und Stücklisten für die Übernahme in die Fertigung übergeben.</p><div class="chips"><span>Vorrichtungen</span><span>Pneumatiklogik</span><span>DFM</span></div></div>
+    </a>
+
+    <a class="card" href="projects/ti-nspire-internet-link.html">
+      <div class="img"><img src="../assets/img/nspire-v2-underside.jpg" alt="V2 nternet-Link-Adapter mit geöffnetem Gehäuse"></div>
+      <div class="body"><div class="k">Privat &middot; Open Hardware</div><h3>nternet-Link</h3><p>Die Hardware-Seite einer offenen Plattform, die einen TI-Nspire ins Netzwerk bringt: vier Generationen von Steckadaptern, gedruckte Gehäuse und eine eigene 40 x 15 mm Platine, mit einer Community, die inzwischen die Firmware schreibt. 39 Sterne.</p><div class="chips"><span>ESP32-Hardware</span><span>KiCad</span><span>Gehäusedesign</span><span>Community</span></div></div>
+    </a>
+
+
+
+    <a class="card big" href="projects/ut-tower-ornament.html">
+      <div class="img"><img src="../assets/img/tower-trio.jpg" alt="UT-Tower-Projekt: Originalbauplan, gedrucktes Modell und das Modell nach einem Sieg in Burnt Orange beleuchtet" style="object-position:center top"></div>
+      <div class="body"><div class="k">Privat &middot; CAD + Embedded</div><h3>IoT-Ornament des UT Tower</h3><p>Nach den Originalbauplänen in SolidWorks modelliert und im Resin-Druck gefertigt; ein ESP32 im Sockel fragt die Beleuchtungsseite der Universität ab und beleuchtet das Modell passend dazu. Interaktives 3D-Modell auf der Seite.</p><div class="chips"><span>SolidWorks</span><span>ESP32</span><span>Resin-Druck</span><span>3D-Viewer</span></div></div>
+    </a>
+
+    <a class="card" href="projects/rc-car-chassis.html">
+      <div class="img"><img src="../assets/img/rc-car.jpg" alt="RC-Auto mit türkisfarbenem gedrucktem Chassis" style="object-position:center 55%"></div>
+      <div class="body"><div class="k">UT Austin &middot; Maschinenelemente</div><h3>RC-Auto-Chassis</h3><p>Eine gedruckte Wanne, die Antriebsstrang und Federung aus defekten RC-Autos trägt. Ich habe das Chassis konstruiert, das Team hat den Rest gebaut.</p><div class="chips"><span>SolidWorks</span><span>FDM-gerechtes Design</span><span>Teamprojekt</span></div></div>
+    </a>
+
+    <a class="card" href="projects/windmill-generator.html">
+      <div class="img"><img src="../assets/img/windmill-turbine.jpg" alt="3D-gedruckte Vertikalachsen-Windturbine auf einem Stativ" style="object-position:center 45%"></div>
+      <div class="body"><div class="k">UT Austin &middot; Mechatronik-Labor</div><h3>Vertikalachsen-Windturbine + Anzeigeschaltung</h3><p>Gedruckter Helixrotor auf einem Generator, AC-DC-Wandlung und eine analoge Anzeigeschaltung: zu langsam, zu schnell und eine Helligkeit, die der Drehzahl folgt.</p><div class="chips"><span>Analogschaltungen</span><span>Komparatoren</span><span>Turbinen-CAD</span></div></div>
+    </a>
+
+    <a class="card" href="projects/overdose-response-device.html">
+      <div class="img"><img src="../assets/img/overdose-prototype.jpg" alt="Erster Prototyp des Notfallgeräts für Überdosierungen mit zwei LCDs" style="object-position:center 45%"></div>
+      <div class="body"><div class="k">Privat</div><h3>Notfallhilfegerät bei Überdosierung</h3><p>Ein MAX30100 und ein Mikrofon, die Puls, SpO2 und Atmung zu einem Risikowert verrechnen, der Narcan-Hinweise auf einem LCD steuert. Zwei Aufbauten: Arduino Nano, dann ESP8266.</p><div class="chips"><span>ESP8266</span><span>MAX30100</span><span>Risikobewertung</span></div></div>
+    </a>
+  </div>
+
+  <section class="two" id="about">
+    <div>
+      <h2>Über mich</h2>
+      <img class="headshot" src="../assets/img/headshot.jpg" alt="William Otterson" width="120" height="120">
+      <p>Maschinenbaustudent an der UT Austin, Abschluss Mai 2027. Der Großteil meiner Arbeit lag bisher in der Medizingeräte-Entwicklung, wo lückenlose Dokumentation und frühes Testen zur Gewohnheit wurden. Ich mag Probleme, die zwischen Mechanik, Elektrik und Software liegen, und ich baue in der Regel erst den Prüfstand, bevor ich dem Bauteil traue.</p>
+      <p>Außerhalb der Arbeit entwickle und veröffentliche ich Open Hardware auf <a href="https://github.com/OtterCadGH">GitHub</a> und <a href="https://www.youtube.com/@OtterCADyt">YouTube</a>. Offen für Vollzeitstellen in Konstruktion, Test und R&amp;D ab 2027. US-Staatsbürger.</p>
+      <p><b>Werkzeuge:</b> SolidWorks (GD&amp;T nach ASME Y14.5, Flächenmodellierung, Toleranzanalyse, FEA), KiCad, Arduino und ESP32, Python, MATLAB, Lua, Pneumatik, Messtechnik mit Thermoelementen und Hall-Sensoren, FDM- und SLA-Druck, CNC, Laserschneiden, Faserverbund-Laminate.</p>
+    </div>
+    <div>
+      <h2>Erfahrung</h2>
+      <ul class="exp">
+        <li><div><b>International Biomedical</b><span>Praktikant Maschinenbau, Austin, TX &middot; <a href="projects/international-biomedical.html">Details</a></span></div><i>Mai 2026 - heute</i></li>
+        <li><div><b>Smith+Nephew</b><span>R&amp;D-Ingenieur (Co-op), HNO, Austin, TX &middot; <a href="projects/smith-nephew.html">Details</a></span></div><i>Juni - Dez. 2025</i></li>
+        <li><div><b>MINIMAX Lab, UT Austin</b><span>Wissenschaftliche Hilfskraft, Mikropumpen + Lehrbuch-Storyboards &middot; <a href="projects/minimax-micropumps.html">Details</a></span></div><i>Aug. 2024 - Apr. 2026</i></li>
+        <li><div><b>GoPro</b><span>Produktevaluierungstester, Maui, HI &middot; <a href="projects/gopro.html">Details</a></span></div><i>Jan. - März 2022</i></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site" id="contact"><div class="wrap">
+  <span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/williamwotterson">LinkedIn</a> &middot; <a href="https://github.com/OtterCadGH">GitHub</a> &middot; <a href="https://www.youtube.com/@OtterCADyt">YouTube</a></span>
+  <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
+<div style="width:100%;text-align:center;margin-top:14px"><a href="/" onclick="try{localStorage.setItem('site-lang','en')}catch(e){}" style="display:inline-block;border:1px solid var(--rule);padding:6px 14px;font-size:13px;color:var(--muted)">English</a></div>
+</div></footer>
+
+
+<dialog id="contact-dlg">
+  <h3>Kontakt</h3>
+  <p class="cd-row"><span>E-Mail</span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a></p>
+  <p class="cd-row"><span>Telefon</span><a href="tel:+18087405886">(808) 740 5886</a></p>
+  <p class="cd-row"><span>LinkedIn</span><a href="https://www.linkedin.com/in/williamwotterson" target="_blank" rel="noopener">in/williamwotterson</a></p>
+  <button id="contact-close" type="button">Schließen</button>
+</dialog>
+<script>
+(function(){
+  var d = document.getElementById('contact-dlg');
+  document.querySelectorAll('a[data-contact]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); d.showModal(); });
+  });
+  document.getElementById('contact-close').addEventListener('click', function(){ d.close(); });
+  d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+})();
+</script>
+<script data-goatcounter="https://ottercad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

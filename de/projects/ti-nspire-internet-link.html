@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nternet-Link - William Otterson</title>
+<meta name="description" content="nternet-Link: eine Open-Hardware-Plattform, die einen TI-Nspire-Taschenrechner ins Netzwerk bringt. Serielles Protokoll mit Prüfsummen, anbieterunabhängige ESP32-Firmware, vier eigene Platinendesigns und ein byte-genauer Browser-Simulator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="nternet-Link - William Otterson">
+<meta property="og:description" content="nternet-Link: eine Open-Hardware-Plattform, die einen TI-Nspire-Taschenrechner ins Netzwerk bringt. Serielles Protokoll mit Prüfsummen, anbieterunabhängige ESP32-Firmware, vier eigene Platinendesigns und ein byte-genauer Browser-Simulator.">
+<meta property="og:image" content="https://ottercadgh.github.io/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://ottercadgh.github.io/de/projects/ti-nspire-internet-link.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="en" href="https://ottercadgh.github.io/projects/ti-nspire-internet-link.html">
+<link rel="alternate" hreflang="de" href="https://ottercadgh.github.io/de/projects/ti-nspire-internet-link.html">
+</head>
+<body>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="../../de/index.html"><i></i>William Otterson</a>
+  <nav><a class="on" href="../../de/index.html#work">Arbeiten</a><a href="../../de/index.html#about">Über mich</a><a href="#" data-contact>Kontakt</a><a class="btn" href="../../assets/WilliamOtterson_Resume.pdf" target="_blank" rel="noopener">Lebenslauf</a></nav>
+</div></header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="eyebrow">Privat &middot; Open Hardware &middot; 2025 bis heute &middot; vier Generationen</div>
+    <h1>Einen Grafiktaschenrechner ins Netzwerk bringen</h1>
+    <p class="k" style="margin:-6px 0 14px;letter-spacing:0;text-transform:none;font-size:13px">Neu in der Nspire-Szene? "nternet" ist absichtlich so geschrieben. Nspire spielt auf "inspire" an, und Community-Projekte lassen den ersten Buchstaben weg, so wie der Ndless-Jailbreak auf "endless" anspielt. nternet ist "internet" im Nspire-Stil.</p>
+    <p class="lede">nternet-Link ist eine Open-Hardware-Plattform, die einen TI-Nspire über einen kleinen aufsteckbaren ESP32-Adapter mit WLAN verbindet. Ich habe das Projekt gestartet und verantworte die Hardware: vier Generationen von Adaptern, die gedruckten Gehäuse und die eigenen Platinen, darunter der kleinste und kompakteste Aufbau, den bisher jemand in der Community gebaut hat. Die V4-Firmware und ihr serielles Protokoll mit Prüfsummen wurden von einem Mitwirkenden aus der Community geschrieben, die um das Projekt entstanden ist; ich baue die Hardware, auf der beides läuft. Die mitgelieferte Anwendung ist ein KI-Tutor mit Kamera.</p>
+    <p class="cta"><a class="p" href="https://github.com/OtterCadGH/nternet-Link">Repository auf GitHub ansehen</a></p>
+  </div>
+
+  <div class="glance">
+    <div><span class="k">Ergebnis</span><b>Vier Generationen, vom eingelöteten Umbau bis zur Platine mit 40 x 15 x 1.0 mm</b>; nlink-lite geroutet mit erzeugten Gerber-Dateien, 39 Sterne und eine Discord-Community, die inzwischen Firmware beiträgt</div>
+    <div><span class="k">Meine Rolle</span>Gründer und Hardware-Verantwortlicher: Adapterdesign, Packaging und gedruckte Gehäuse, Platinenlayout, Bauanleitungen, Community. Firmware und das nlink-v1-Protokoll: ein Mitwirkender aus der Community</div>
+    <div><span class="k">Randbedingungen</span>Keine Veränderung am Taschenrechner (ab V2); ein 12.5 mm breiter Stick; keine API-Schlüssel im Quellcode; muss von Fremden allein anhand der Doku nachbaubar sein</div>
+    <div><span class="k">Kompetenzen</span>KiCad (HF-Sperrflächen, Antennenplatzierung), USB-UART-Bridging, kompaktes Packaging, FDM-Gehäuse, technisches Schreiben, Betreuung einer Open-Hardware-Community</div>
+  </div>
+
+  <figure class="hero-fig" style="max-width:720px">
+    <a href="https://github.com/OtterCadGH/nternet-Link"><img src="../../assets/img/nspire-simulator.jpg" alt="nternet-Link V4 Browser-Simulator: ein simulierter TI-Nspire-Bildschirm mit der Taschenrechner-App neben einem virtuellen ESP32-Panel mit Schaltflächen zur Fehlerinjektion, einem dekodierten Leitungsprotokoll und einer simulierten SD-Karte"></a>
+    <figcaption><span class="fig-num">FIG 1</span><b>Der V4-Simulator, laufend im Browser.</b> Die Taschenrechner-Oberfläche links und ein virtueller ESP32 rechts sprechen über das echte nlink-v1-Leitungsprotokoll. Das rechte Panel injiziert Fehler: Wird der nächste Frame verfälscht, zeigt das Leitungsprotokoll die CRC-Ablehnung und den erneuten Versuch. <a href="https://github.com/OtterCadGH/nternet-Link">Repository öffnen</a> und selbst ausprobieren; es ist eine einzelne HTML-Datei und funktioniert offline.</figcaption>
+  </figure>
+
+  <div class="split rev">
+    <div>
+      <h2>Funktionsweise</h2>
+      <p>Der Taschenrechner stellt Tastatur und Bildschirm und führt eine Lua-App aus. Das Gerät ist ein ESP32, der USB-seriell auf WLAN brückt, jede OpenAI-kompatible API ansprechen kann, eine OV5640-Kamera ansteuert und Fotos und Chatverläufe als einfaches FAT32 auf einer microSD-Karte ablegt.</p>
+      <p>Beide Seiten sprechen <b>nlink v1</b>, ein kleines gerahmtes Protokoll mit CRC16-Prüfungen und automatischen Wiederholungen, das den verstümmelten, ungeprüften seriellen Datenstrom der früheren Versionen abgelöst hat. Anerkennung dorthin, wo sie hingehört: Das Protokoll und die V4-Firmware wurden von einem Mitglied der Community rund um das Projekt geschrieben. Mein Teil ist es, die Hardware, auf der sie laufen, klein, zuverlässig und für jeden anhand der Anleitungen nachbaubar zu machen.</p>
+
+    </div>
+    <figure>
+      <svg viewBox="0 0 640 330" role="img" aria-label="Datenpfad: die Lua-App des TI-Nspire spricht über USB-seriell mit dem nternet-Link-Gerät, einem ESP32 mit USB-Bridge, Kamera und SD-Karte, das sich über WLAN mit einem KI-Anbieter verbindet."><g transform="translate(110,0)">
+        <rect x="60" y="20" width="300" height="60" class="box" rx="3"/>
+        <text x="210" y="45" text-anchor="middle">TI-Nspire</text>
+        <text x="210" y="64" text-anchor="middle" class="lab">Tastatur, Bildschirm, Lua-App (nlink.lua)</text>
+        <line x1="210" y1="80" x2="210" y2="120" class="ln"/>
+        <text x="222" y="104" class="lab">USB-seriell, nlink-v1-Frames + CRC16</text>
+        <rect x="60" y="120" width="300" height="90" class="box acc" rx="3"/>
+        <text x="210" y="148" text-anchor="middle">nternet-Link-Gerät</text>
+        <text x="210" y="168" text-anchor="middle" class="lab">ESP32-S3, CP2102N USB-Bridge</text>
+        <text x="210" y="186" text-anchor="middle" class="lab">OV5640-Kamera, microSD</text>
+        <text x="210" y="202" text-anchor="middle" class="lab">Schlüssel im Flash, nicht im Quellcode</text>
+        <line x1="210" y1="210" x2="210" y2="250" class="ln dash"/>
+        <text x="222" y="234" class="lab">WLAN, HTTPS</text>
+        <rect x="60" y="250" width="300" height="60" class="box" rx="3"/>
+        <text x="210" y="275" text-anchor="middle">Jeder OpenAI-kompatible Anbieter</text>
+        <text x="210" y="294" text-anchor="middle" class="lab">Groq, OpenAI, OpenRouter, lokal</text>
+      </g></svg>
+      <figcaption><span class="fig-num">FIG 2</span><b>Datenpfad.</b> Der Taschenrechner spricht nie direkt mit dem Netzwerk; das übernimmt das Gerät.</figcaption>
+    </figure>
+  </div>
+
+  <h2>Vier Generationen</h2>
+  <figure>
+    <svg viewBox="0 0 820 200" role="img" aria-label="Zeitstrahl von vier Generationen: V1 ESP32 in den Taschenrechner eingelötet; V2 externer Aufsteckadapter auf ESP32-C3, keine Veränderung; V3 ESP32-S3 mit Kamera und Proxy am Host; V4 Neuentwicklung mit prüfsummengesichertem Protokoll, zwei eigenen Platinen, Simulator und Tests.">
+      <line x1="30" y1="40" x2="790" y2="40" class="ln"/>
+      <circle cx="90" cy="40" r="6" class="box"/><circle cx="300" cy="40" r="6" class="box"/><circle cx="510" cy="40" r="6" class="box"/><circle cx="720" cy="40" r="7" class="box acc"/>
+      <text x="90" y="24" text-anchor="middle" class="lab">2025</text>
+      <text x="720" y="24" text-anchor="middle" class="lab">aktuell</text>
+      <rect x="10" y="60" width="170" height="120" class="box" rx="3"/>
+      <text x="95" y="84" text-anchor="middle">V1 Ti-GPT</text>
+      <text x="95" y="104" text-anchor="middle" class="lab">ESP32 eingelötet im</text>
+      <text x="95" y="118" text-anchor="middle" class="lab">Taschenrechner, auf den</text>
+      <text x="95" y="132" text-anchor="middle" class="lab">USB-Leitungen. Beweis.</text>
+      <text x="95" y="160" text-anchor="middle" class="lab">Altbestand</text>
+      <rect x="220" y="60" width="170" height="120" class="box" rx="3"/>
+      <text x="305" y="84" text-anchor="middle">V2 Adapter</text>
+      <text x="305" y="104" text-anchor="middle" class="lab">Externer Aufstecker auf</text>
+      <text x="305" y="118" text-anchor="middle" class="lab">ESP32-C3, Druckgehäuse.</text>
+      <text x="305" y="132" text-anchor="middle" class="lab">Keine Rechner-Umbauten.</text>
+      <text x="305" y="160" text-anchor="middle" class="lab">funktioniert</text>
+      <rect x="430" y="60" width="170" height="120" class="box" rx="3"/>
+      <text x="515" y="84" text-anchor="middle">V3 Kamera</text>
+      <text x="515" y="104" text-anchor="middle" class="lab">ESP32-S3 + Kamera,</text>
+      <text x="515" y="118" text-anchor="middle" class="lab">Proxy-Server am Host.</text>
+      <text x="515" y="132" text-anchor="middle" class="lab">Erste modulare Plattform.</text>
+      <text x="515" y="160" text-anchor="middle" class="lab">abgelöst</text>
+      <rect x="640" y="60" width="170" height="120" class="box acc" rx="3"/>
+      <text x="725" y="84" text-anchor="middle">V4 Neuentwicklung</text>
+      <text x="725" y="104" text-anchor="middle" class="lab">nlink-v1-Protokoll, NVS-</text>
+      <text x="725" y="118" text-anchor="middle" class="lab">Provisionierung, 4 Platinen,</text>
+      <text x="725" y="132" text-anchor="middle" class="lab">Simulator, Tests.</text>
+      <text x="725" y="160" text-anchor="middle" class="lab">aktuell</text>
+    </svg>
+    <figcaption><span class="fig-num">FIG 3</span><b>Der Verlauf.</b> V1 bewies die Idee durch Einlöten in den Taschenrechner. V2 ist die Hardware, die geblieben ist: ein externer Aufsteckadapter, keine Veränderung am Rechner, und der Aufbau im Demovideo weiter unten. V3 und V4 sind dasselbe Adapterkonzept auf neuer Software, mit zusätzlicher Kamera; V4 ist die aktuelle Firmware- und Platinenfamilie, wobei die Firmware inzwischen von der Community geschrieben wird.</figcaption>
+  </figure>
+
+  <h2>Hardware</h2>
+  <figure class="hero-fig">
+    <img src="../../assets/img/nspire-v2-underside.jpg" alt="Unterseite des V2 nternet-Link-Adapters mit geöffnetem Gehäuse: Seeed XIAO ESP32-C3, CP2102 USB-Bridge-Platine, versteckter Schiebeschalter und ein um 90 Grad gewinkelter Mini-USB-OTG-Stecker, in einem gedruckten Gehäuse mit den Prägungen nternet-link und OtterCAD">
+    <figcaption><span class="fig-num">FIG 4</span><b>V2 Adapter, Gehäuse geöffnet.</b> Alles, was der Taschenrechner braucht, in einem Stick von der Breite seines eigenen Anschlusses: ein XIAO ESP32-C3, eine CP2102 USB-UART-Bridge, ein versteckter Schiebeschalter und ein um 90 Grad gewinkelter Mini-USB-OTG-Stecker, damit der Adapter bündig sitzt. Das gedruckte Gehäuse trägt auf einer Seite den Projektnamen und auf der anderen OtterCAD.</figcaption>
+  </figure>
+
+  <div class="split" style="align-items:start">
+    <figure>
+      <img src="../../assets/img/nspire-scale.jpg" alt="Ein TI-Nspire CX II neben der nlink-lite-Platine im gleichen Maßstab: der Taschenrechner misst 191 x 86 mm, die Platine 40 x 15 mm">
+      <figcaption><span class="fig-num">FIG 5</span><b>Gleicher Maßstab.</b> Der Taschenrechner misst 191 x 86 x 15 mm. Die komplette nlink-lite-Platine misst 40 x 15 x 1.0 mm, so breit wie ein Mini-USB-Stecker, sodass der fertige Adapter am Ende des Taschenrechners praktisch verschwindet.</figcaption>
+    </figure>
+    <figure>
+      <img src="../../assets/img/nspire-lite-front.jpg" alt="nlink-lite-Platine, vordere Kupferlage: USB-Pins, CP2102N, ESP32-C3-MINI-1-Modul mit Antennen-Sperrfläche">
+      <figcaption><span class="fig-num">FIG 6</span><b>nlink-lite, vordere Lage.</b> USB-Pins zum Taschenrechner links, CP2102N-Bridge, ESP32-C3-MINI-1-Modul, Antennen-Sperrfläche am äußeren Ende. Geroutet, Gerber-Dateien im Repository.</figcaption>
+    </figure>
+  </div>
+
+  <div class="results">
+    <div><b>40 x 15 x 1.0 mm</b><span>nlink-lite-Platine</span></div>
+    <div><b>4</b><span>Hardware-Generationen</span></div>
+    <div><b>38</b><span>GitHub-Sterne</span></div>
+  </div>
+
+  <div class="narrow">
+    <p>Die Adapter V2 bis V4 sind dieselbe Idee in verfeinerter Form: ein Aufsteckstick am Mini-USB-Anschluss des Taschenrechners, keine Veränderung am Rechner, alles in einem gedruckten Gehäuse. V4 ersetzt das handverdrahtete Sandwich aus Modul und Bridge durch eigens entworfene Platinen. nlink-lite, die reine Chat-Version auf einem ESP32-C3-MINI-1, ist geroutet und bestellfertig. nlink-cam, die Kameraversion, ist im Schaltplan erfasst und wartet auf das Layout; das Ziel ist ein Stick mit 60 x 12.5 mm, was jedes ESP32-S3-Modul auf dem Markt ausschließt und zu einem Design mit nacktem Chip und Chip-Antenne führt.</p>
+  </div>
+
+  <h2>Die mitgelieferte Anwendung</h2>
+  <p class="narrow">Ab Werk läuft auf dem Taschenrechner eine Chat- und Tutor-App: eine Frage eintippen, oder die Kamera auf eine Aufgabe richten, dann liest und löst sie sie, mit Antworten und Fotos, die auf der SD-Karte gespeichert werden. Diese App ist die Demonstrationsanwendung; die Plattform darunter ist allgemein, und die V2-Doku im Repository zeigt, wie sie Zeichenketten, Dateien und beliebige API-Anfragen überträgt. Wie es im Repository gleich auf der ersten Seite steht: Dies ist ein Experiment zu eingebetteten Systemen und Netzwerken und weder dafür ausgelegt noch dafür gedacht, in Prüfungen verwendet zu werden.</p>
+
+  <h2>Demo</h2>
+  <div class="split rev" style="align-items:start">
+    <figure>
+      <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/zKWZ0URra5Q" title="nternet-Link V2 Demo" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <figcaption><span class="fig-num">FIG 7</span><b>V2 Adapter in Betrieb.</b> ESP32-C3 in einem gedruckten Gehäuse am Mini-USB-Anschluss des Taschenrechners. <a href="https://youtube.com/shorts/zKWZ0URra5Q">Auf YouTube ansehen</a>, <a href="https://www.thingiverse.com/thing:7322781">3D-Dateien</a>.</figcaption>
+    </figure>
+    <div>
+      <p>Das Video zeigt den V2-Aufbau. V3 und V4 behalten dieselbe Aufsteckform und ergänzen die Kamera; geändert haben sich darunter das Protokoll, die Firmware und die oben beschriebenen Platinendesigns. Der V4-Simulator oben auf der Seite führt die aktuelle Taschenrechner-Oberfläche gegen ein virtuelles Gerät aus, sodass sich das ganze Erlebnis ausprobieren lässt, bevor irgendeine Hardware gebaut ist.</p>
+    </div>
+  </div>
+
+  <p class="narrow">Der Teil, auf den ich am stolzesten bin, ist, dass Fremde das allein anhand der Dokumentation nachgebaut haben. Sie zu unterstützen war eine eigene Ingenieurslektion: Die Fragen, die zurückkommen, zeigen genau, welcher Schritt einer Anleitung mehrdeutig ist, und der V4-Simulator existiert auch deshalb, damit Leute das gesamte Erlebnis ausprobieren können, bevor sie ein einziges Teil kaufen.</p>
+
+  <section class="tech">
+    <h2>Technische Details</h2>
+    <div class="inner">
+      <table class="spec">
+        <tr><th>Protokoll</th><td>nlink v1: gerahmte Nachrichten, CRC16, automatische Wiederholungen. Geschrieben von einem Mitwirkenden aus der Community; Spezifikation in docs/PROTOCOL.md</td></tr>
+        <tr><th>Firmware</th><td>Von der Community geschrieben, C++ auf PlatformIO, drei Zielplattformen (Dev-Board, nlink-cam, nlink-lite); keine API-Schlüssel im Quellcode</td></tr>
+        <tr><th>Taschenrechner-Seite</th><td>nlink.lua-Clientbibliothek plus demo_app.lua, mit der TI-Nspire Student Software zu einer .tns gebaut</td></tr>
+        <tr><th>Platinen (von mir)</th><td>nlink-lite: ESP32-C3-MINI-1, 40 x 15 x 1.0 mm, nur Chat, geroutet, Gerber-Dateien erzeugt. nlink-cam: ESP32-S3, ~60 x 12.5 mm, Kamera + microSD, Schaltplan erfasst. nlink-proto und nlink-stick als Aufbau- und Absicherungsvarianten</td></tr>
+        <tr><th>Stick-Randbedingungen</th><td>4 Lagen, beidseitig bestückt, gedrehter 24-Pin-FPC, seitlich einschiebbare microSD, Sperrfläche für die Chip-Antenne, kein USB-C (Programmierung über TC2030 / Pogo-Pads)</td></tr>
+        <tr><th>Simulator</th><td>Eine einzelne, in sich geschlossene HTML-Datei: Taschenrechner-Oberfläche + virtueller ESP32, byte-genaues Protokoll, Fehlerinjektion (verfälschter Frame, BUSY, API-Fehler, WLAN-Abbruch, Abziehen), dekodiertes Leitungsprotokoll, simulierte SD-Karte</td></tr>
+        <tr><th>Status</th><td>V2 Adapter gebaut und in Benutzung; nlink-lite geroutet und fertigungsbereit; nlink-cam im Layout</td></tr>
+        <tr><th>Links</th><td><a href="https://github.com/OtterCadGH/nternet-Link">github.com/OtterCadGH/nternet-Link</a> &middot; <a href="https://youtube.com/shorts/zKWZ0URra5Q">V2 Demovideo</a> &middot; <a href="https://www.thingiverse.com/thing:7322781">Thingiverse</a> &middot; <a href="https://www.youtube.com/@OtterCADyt">YouTube-Kanal</a></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <div class="pn">
+    <a href="press-fixture.html">&larr; Zurück zu: Laminierpresse</a>
+    <a href="ut-tower-ornament.html">Weiter: UT-Tower-Ornament &rarr;</a>
+  </div>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/williamwotterson">LinkedIn</a> &middot; <a href="https://github.com/OtterCadGH">GitHub</a></span>
+  <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
+<div style="width:100%;text-align:center;margin-top:14px"><a href="/projects/ti-nspire-internet-link.html" onclick="try{localStorage.setItem('site-lang','en')}catch(e){}" style="display:inline-block;border:1px solid var(--rule);padding:6px 14px;font-size:13px;color:var(--muted)">English</a></div>
+</div></footer>
+
+
+<dialog id="contact-dlg">
+  <h3>Kontakt</h3>
+  <p class="cd-row"><span>E-Mail</span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a></p>
+  <p class="cd-row"><span>Telefon</span><a href="tel:+18087405886">(808) 740 5886</a></p>
+  <p class="cd-row"><span>LinkedIn</span><a href="https://www.linkedin.com/in/williamwotterson" target="_blank" rel="noopener">in/williamwotterson</a></p>
+  <button id="contact-close" type="button">Schließen</button>
+</dialog>
+<script>
+(function(){
+  var d = document.getElementById('contact-dlg');
+  document.querySelectorAll('a[data-contact]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); d.showModal(); });
+  });
+  document.getElementById('contact-close').addEventListener('click', function(){ d.close(); });
+  d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+})();
+</script>
+<script data-goatcounter="https://ottercad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

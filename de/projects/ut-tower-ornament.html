@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IoT-Ornament des UT Tower - William Otterson</title>
+<meta name="description" content="Modell des UT Tower im Schreibtischmaßstab, in SolidWorks aus den originalen Architektur-Blaupausen nachkonstruiert, beleuchtet von einem ESP32, der den Beleuchtungsstatus des echten Turms spiegelt. Interaktives 3D-Modell.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="IoT-Ornament des UT Tower - William Otterson">
+<meta property="og:description" content="Modell des UT Tower im Schreibtischmaßstab, in SolidWorks aus den originalen Architektur-Blaupausen nachkonstruiert, beleuchtet von einem ESP32, der den Beleuchtungsstatus des echten Turms spiegelt. Interaktives 3D-Modell.">
+<meta property="og:image" content="https://ottercadgh.github.io/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://ottercadgh.github.io/de/projects/ut-tower-ornament.html">
+<meta name="twitter:card" content="summary_large_image">
+<script src="../../assets/js/model-viewer.min.js" defer></script>
+<link rel="alternate" hreflang="en" href="https://ottercadgh.github.io/projects/ut-tower-ornament.html">
+<link rel="alternate" hreflang="de" href="https://ottercadgh.github.io/de/projects/ut-tower-ornament.html">
+</head>
+<body>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="../../de/index.html"><i></i>William Otterson</a>
+  <nav><a class="on" href="../../de/index.html#work">Arbeiten</a><a href="../../de/index.html#about">Über mich</a><a href="#" data-contact>Kontakt</a><a class="btn" href="../../assets/WilliamOtterson_Resume.pdf" target="_blank" rel="noopener">Lebenslauf</a></nav>
+</div></header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="eyebrow">Privat &middot; CAD + Embedded &middot; Okt 2024 bis Jan 2025</div>
+    <h1>Der UT Tower auf dem Schreibtisch, beleuchtet wie das Original</h1>
+    <p class="lede">Ein Modell des Turms der UT Austin im Schreibtischmaßstab, in SolidWorks nach den originalen Architektur-Blaupausen modelliert und in weißem Resin gedruckt, mit einem ESP32 im Inneren, der die Turmbeleuchtungs-Seite der Universität liest und das Modell passend beleuchtet: weiß an einem gewöhnlichen Abend, Burnt Orange nach einem Sieg.</p>
+  </div>
+
+  <div class="glance">
+    <div><span class="k">Ergebnis</span><b>Gedruckt, beleuchtet und live</b>: das Modell spiegelt den veröffentlichten Beleuchtungsstatus des echten Turms über WLAN. Das vollständige CAD ist unten; einfach drehen.</div>
+    <div><span class="k">Meine Rolle</span>Alles: Blaupausen-Recherche, CAD, Druck, Elektronik, Firmware</div>
+    <div><span class="k">Randbedingungen</span>Korrekte Proportionen aus echten Zeichnungen; Schreibtischmaßstab; lichtdurchlässige Wände, damit die Fenster von innen leuchten</div>
+    <div><span class="k">Kompetenzen</span>SolidWorks, ESP32, HTTP-Abruf und -Parsing, Resindruck</div>
+  </div>
+
+  <div class="mv-wrap" style="margin-bottom:12px">
+    <span class="tag">interaktiv: Ziehen zum Drehen, Scrollen zum Zoomen</span>
+    <model-viewer src="../../assets/models/ut-tower.glb" alt="3D-Modell des UT-Tower-Ornaments, nachkonstruiert aus den originalen Blaupausen" camera-controls auto-rotate auto-rotate-delay="1500" rotation-per-second="20deg" environment-image="neutral" shadow-intensity="1.2" shadow-softness="0.8" exposure="0.85" camera-orbit="35deg 78deg 100%" min-camera-orbit="auto auto 40%" max-camera-orbit="auto auto 200%" interaction-prompt="none" loading="eager">
+      <div slot="poster" class="ph" style="height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:var(--muted)">3D-Modell wird geladen (665 KB)</div>
+    </model-viewer>
+    <span class="hint"><a href="../../assets/models/ut-tower.stl" download>STL herunterladen</a></span>
+  </div>
+  <figcaption style="margin-bottom:44px"><span class="fig-num">FIG 1</span><b>Das SolidWorks-Modell, im Browser.</b> Die Rücksprünge, der Fensterrhythmus, die Kolonnade der Aussichtsplattform und die Zifferblätter stecken alle in der Geometrie.</figcaption>
+
+  <div class="quad">
+    <figure>
+      <img src="../../assets/img/tower-blueprint.jpg" alt="Originale Blaupause des UT Main Building: Nordansicht des Turms mit annotierten Höhenkoten der einzelnen Stufen">
+      <figcaption><b>Die Quelle.</b> Nordansicht aus den originalen Blaupausen, 1/8 in = 1 ft.</figcaption>
+    </figure>
+    <figure>
+      <img src="../../assets/img/tower-clean.jpg" alt="Das gedruckte UT-Tower-Modell, unbeleuchtet, auf einem Schreibtisch">
+      <figcaption><b>Gedruckt.</b> Weißes Resin, Sockel und Turm als separate Teile.</figcaption>
+    </figure>
+    <figure>
+      <img src="../../assets/img/tower-white.jpg" alt="Das Turmmodell von innen weiß beleuchtet, der Alltagszustand">
+      <figcaption><b>Alltag.</b> Weiß, entsprechend der Standardbeleuchtung des Turms.</figcaption>
+    </figure>
+    <figure>
+      <img src="../../assets/img/tower-red.jpg" alt="Das Turmmodell in Burnt Orange beleuchtet, der Zustand nach einem Sieg">
+      <figcaption><b>Nach einem Sieg.</b> Burnt Orange, von der Live-Statusseite übernommen.</figcaption>
+    </figure>
+  </div>
+
+  <div class="narrow">
+    <h2>Die Quelle</h2>
+    <p>Die meisten Turmmodelle im Netz sind nach Fotos geschätzt. Ich habe stattdessen mit den originalen Zeichnungen "Main Building and Library Extension" gearbeitet, der Nordansicht des Turms im Maßstab 1/8 in pro Fuß, mit jeder Stufenhöhe am linken Rand vermerkt. Die Rücksprünge, die Kolonnade der Aussichtsplattform, das Zifferblatt und der Fensterrhythmus im Modell stammen alle aus diesem Blatt.</p>
+    <h2>Die Beleuchtung</h2>
+    <p>Der echte Turm ändert seine Beleuchtung bei Football-Siegen, zur Graduierung und zu anderen Anlässen, und die Universität veröffentlicht den aktuellen Status auf einer Webseite. Ein ESP32 im Sockel fragt diese Seite über WLAN ab, parst die Konfiguration und steuert die LEDs des Modells passend an; er hat keinen eigenen Zeitplan, er zeigt, was die Universität veröffentlicht. Die Wände sind dünn genug gedruckt, dass die Fensterausschnitte bei Beleuchtung von innen leuchten, was die Beleuchtungszustände ablesbar macht statt nur einen hellen Sockel zu zeigen.</p>
+  </div>
+
+  <figure style="max-width:720px">
+      <svg viewBox="0 0 640 330" role="img" aria-label="Datenfluss: Der ESP32 fragt die UT-Turmbeleuchtungs-Webseite über WLAN ab, parst den Status und steuert die LEDs im Modell an."><g transform="translate(110,0)">
+        <rect x="60" y="20" width="300" height="60" class="box" rx="3"/>
+        <text x="210" y="45" text-anchor="middle">UT-Turmbeleuchtungs-Seite</text>
+        <text x="210" y="64" text-anchor="middle" class="lab">öffentliche Webseite, per Timer abgefragt</text>
+        <line x1="210" y1="80" x2="210" y2="120" class="ln dash"/>
+        <text x="222" y="104" class="lab">HTTP über WLAN</text>
+        <rect x="60" y="120" width="300" height="90" class="box acc" rx="3"/>
+        <text x="210" y="148" text-anchor="middle">ESP32 im Sockel</text>
+        <text x="210" y="168" text-anchor="middle" class="lab">Statustext parsen</text>
+        <text x="210" y="186" text-anchor="middle" class="lab">auf ein Beleuchtungsmuster abbilden</text>
+        <text x="210" y="202" text-anchor="middle" class="lab">weiß, orange, Sonderfälle</text>
+        <line x1="210" y1="210" x2="210" y2="250" class="ln"/>
+        <rect x="60" y="250" width="300" height="60" class="box" rx="3"/>
+        <text x="210" y="275" text-anchor="middle">LEDs im Turm</text>
+        <text x="210" y="294" text-anchor="middle" class="lab">Schaft und Aussichtsplattform</text>
+      </g></svg>
+      <figcaption><span class="fig-num">FIG 2</span><b>Datenfluss.</b> Der ESP32 fragt die Seite ab, parst den Status und setzt die LEDs.</figcaption>
+    </figure>
+
+  <section class="tech">
+    <h2>Technische Details</h2>
+    <div class="inner">
+      <table class="spec">
+        <tr><th>Quelle</th><td>Originale Architektur-Blaupausen des UT Tower</td></tr>
+        <tr><th>CAD</th><td>SolidWorks; Modellhüllmaß 70 x 70 x 203 mm; STL für den Druck exportiert (34k Dreiecke)</td></tr>
+        <tr><th>Druck</th><td>Weißes Resin; Sockel und Turm separat gedruckt</td></tr>
+        <tr><th>Controller</th><td>ESP32, WLAN, periodischer HTTP-Abruf und Parsing der Beleuchtungs-Statusseite</td></tr>
+        <tr><th>Beleuchtung</th><td>Eine Handvoll LEDs in Schaft und Sockel, den veröffentlichten Konfigurationen des Turms zugeordnet</td></tr>
+        <tr><th>Dateien</th><td><a href="../../assets/models/ut-tower.stl" download>ut-tower.stl</a></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <div class="pn">
+    <a href="ti-nspire-internet-link.html">&larr; Zurück: nternet-Link</a>
+    <a href="rc-car-chassis.html">Weiter: RC-Auto-Chassis &rarr;</a>
+  </div>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/williamwotterson">LinkedIn</a> &middot; <a href="https://github.com/OtterCadGH">GitHub</a></span>
+  <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
+<div style="width:100%;text-align:center;margin-top:14px"><a href="/projects/ut-tower-ornament.html" onclick="try{localStorage.setItem('site-lang','en')}catch(e){}" style="display:inline-block;border:1px solid var(--rule);padding:6px 14px;font-size:13px;color:var(--muted)">English</a></div>
+</div></footer>
+
+
+<dialog id="contact-dlg">
+  <h3>Kontakt</h3>
+  <p class="cd-row"><span>E-Mail</span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a></p>
+  <p class="cd-row"><span>Telefon</span><a href="tel:+18087405886">(808) 740 5886</a></p>
+  <p class="cd-row"><span>LinkedIn</span><a href="https://www.linkedin.com/in/williamwotterson" target="_blank" rel="noopener">in/williamwotterson</a></p>
+  <button id="contact-close" type="button">Schließen</button>
+</dialog>
+<script>
+(function(){
+  var d = document.getElementById('contact-dlg');
+  document.querySelectorAll('a[data-contact]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); d.showModal(); });
+  });
+  document.getElementById('contact-close').addEventListener('click', function(){ d.close(); });
+  d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+})();
+</script>
+<script data-goatcounter="https://ottercad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

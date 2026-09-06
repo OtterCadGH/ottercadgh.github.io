@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Windmühlengenerator und Anzeigeschaltung - William Otterson</title>
+<meta name="description" content="Projekt aus dem Mechatronik-Labor: ein Windturbinengenerator mit AC-DC-Wandlung und einer analogen Anzeigeschaltung, die zu langsam, zu schnell und die Drehzahl über die Helligkeit anzeigt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+<link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Windmühlengenerator und Anzeigeschaltung - William Otterson">
+<meta property="og:description" content="Projekt aus dem Mechatronik-Labor: ein Windturbinengenerator mit AC-DC-Wandlung und einer analogen Anzeigeschaltung, die zu langsam, zu schnell und die Drehzahl über die Helligkeit anzeigt.">
+<meta property="og:image" content="https://ottercadgh.github.io/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://ottercadgh.github.io/de/projects/windmill-generator.html">
+<meta name="twitter:card" content="summary_large_image">
+<script src="../../assets/js/model-viewer.min.js" defer></script>
+<link rel="alternate" hreflang="en" href="https://ottercadgh.github.io/projects/windmill-generator.html">
+<link rel="alternate" hreflang="de" href="https://ottercadgh.github.io/de/projects/windmill-generator.html">
+</head>
+<body>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="../../de/index.html"><i></i>William Otterson</a>
+  <nav><a class="on" href="../../de/index.html#work">Arbeiten</a><a href="../../de/index.html#about">Über mich</a><a href="#" data-contact>Kontakt</a><a class="btn" href="../../assets/WilliamOtterson_Resume.pdf" target="_blank" rel="noopener">Lebenslauf</a></nav>
+</div></header>
+
+<main class="wrap">
+
+  <div class="phead">
+    <div class="eyebrow">UT Austin, ME 140L Mechatronik-Labor &middot; Einzelprojekt</div>
+    <h1>Eine gedruckte Vertikalachsen-Turbine, die anzeigt, wenn sie falsch dreht</h1>
+    <p class="lede">Ein windgetriebener Generator mit einer AC-DC-Wandlungsstufe und einer analogen Anzeigeschaltung, die "zu langsam", "zu schnell" und eine Lampe ansteuert, deren Helligkeit der Drehzahl folgt. Das Labor stellte einen Generator und einen Standardpropeller; ich habe stattdessen eine helixförmige Vertikalachsen-Turbine und einen Dreibeinständer dafür entworfen und gedruckt.</p>
+  </div>
+
+  <div class="glance">
+    <div><span class="k">Ergebnis</span><b>Funktionierende Turbine und Anzeigesystem</b>, live vorgeführt auf einem selbst gedruckten Vertikalachsen-Rotor</div>
+    <div><span class="k">Meine Rolle</span>Allein: CAD und Druck von Turbine und Ständer, Gleichrichter, Komparatorschwellen, Multisim-Modell, Messdatenerfassung</div>
+    <div><span class="k">Randbedingungen</span>Nur diskrete Bauteile (Widerstände, Dioden, Komparatoren, Transistoren, LEDs); gestellter Generator; drei Wochen Laborzeit; Zusatzpunkte gab es nur für elektrische Funktionen, die Turbine war also für mich</div>
+    <div><span class="k">Kompetenzen</span>Analoge Schaltungsentwicklung, Gleichrichtung und Filterung, LM339-Komparatoren, Multisim, experimentelle Charakterisierung, Turbinen-CAD und FDM-Druck</div>
+  </div>
+
+  <div class="split" style="align-items:stretch">
+    <figure>
+      <img src="../../assets/img/windmill-turbine.jpg" alt="3D-gedruckte helixförmige Vertikalachsen-Windturbine auf einem gedruckten Dreibeinständer, Generator in der Nabe montiert">
+      <figcaption><span class="fig-num">FIG 1</span><b>Die Turbine.</b> Ein zweiblättriger helixförmiger Vertikalachsen-Rotor, in einem Stück gedruckt, auf einem gedruckten Dreibeinständer mit dem Generator in der Nabe. Vertikale Achse heißt: Sie nimmt Wind aus jeder Richtung, ohne sich ausrichten zu müssen, was auf einer Werkbank mit Boxventilator wichtig war.</figcaption>
+    </figure>
+    <figure>
+      <video controls muted playsinline preload="metadata" poster="../assets/video/windmill-demo-poster.jpg" src="../../assets/video/windmill-demo.mp4"></video>
+      <figcaption><span class="fig-num">FIG 2</span><b>Demo, 11 Sekunden.</b> Boxventilator links, drehende Turbine, Anzeige-Steckbrett rechts, das Oszilloskop misst den Generatorausgang.</figcaption>
+    </figure>
+  </div>
+
+  <div class="split stack">
+    <div>
+      <h2>Die Vorgabe</h2>
+      <p>Der Generator ist eine permanenterregte Maschine, sein Ausgang ist also Wechselspannung, deren Höhe mit der Wellendrehzahl steigt. Die Aufgabe verlangte, diese in Gleichspannung zu wandeln und daraus ein Anzeigesystem mit drei Verhaltensweisen zu bauen: eine Leuchte für zu langsames Drehen, eine Leuchte für zu schnelles Drehen und eine Leuchte, deren Helligkeit mit der Drehzahl steigt. Alles musste aus diskreten Bauteilen aufgebaut und vorher in Multisim modelliert werden.</p>
+      <p>Die gleichgerichtete Spannung, V_motor, ist das Drehzahlsignal: schnellerer Rotor, höhere Gleichspannung. Ein Brückengleichrichter (vier 1N4002, übernommen aus einem früheren Laborversuch) und ein 10-uF-Kondensator machen aus der Wechselspannung dieses Signal. Zwei Kanäle eines LM339 vergleichen V_motor mit zwei Schwellen, die jeweils über ein 10-kOhm-Poti eingestellt werden: Rot leuchtet bei Unterdrehzahl, Gelb bei Überdrehzahl. Die grüne Anzeige umgeht die Komparatoren komplett und hängt über einen 330-Ohm-Widerstand direkt an V_motor, ihre Helligkeit folgt also einfach der Drehzahl. Kalibriert wurde am Ventilator: bei der langsamsten zulässigen Drehzahl POT1 trimmen, bis Rot gerade erlischt, bei der schnellsten POT2 trimmen, bis Gelb gerade angeht.</p>
+    </div>
+    <figure>
+      <svg viewBox="0 0 820 392" role="img" aria-label="Signalkette: Wechselspannung des Turbinengenerators in einen Brückengleichrichter mit Glättungskondensator, der V_motor erzeugt; zwei LM339-Komparatoren vergleichen V_motor mit über Potis eingestellten unteren und oberen Schwellen und steuern die rote Unterdrehzahl-LED und die gelbe Überdrehzahl-LED; ein Direktzweig über einen 330-Ohm-Widerstand treibt die grüne LED, deren Helligkeit der Drehzahl folgt.">
+        <rect x="280" y="16" width="260" height="52" class="box" rx="3"/>
+        <text x="410" y="38" text-anchor="middle">Turbinengenerator</text>
+        <text x="410" y="56" text-anchor="middle" class="lab">AC, Amplitude steigt mit der Drehzahl</text>
+        <line x1="410" y1="68" x2="410" y2="96" class="ln"/>
+        <rect x="280" y="96" width="260" height="52" class="box acc" rx="3"/>
+        <text x="410" y="118" text-anchor="middle">Brückengleichrichter + 10 uF</text>
+        <text x="410" y="136" text-anchor="middle" class="lab">4x 1N4002; DC-Ausgang = V_motor</text>
+        <rect x="590" y="96" width="210" height="52" class="box" rx="3"/>
+        <text x="695" y="118" text-anchor="middle">Labornetzteil</text>
+        <text x="695" y="136" text-anchor="middle" class="lab">versorgt den LM339, mindestens 7 V</text>
+        <line x1="410" y1="148" x2="410" y2="176" class="ln"/>
+        <line x1="130" y1="176" x2="690" y2="176" class="ln"/>
+        <line x1="130" y1="176" x2="130" y2="206" class="ln"/><line x1="410" y1="176" x2="410" y2="206" class="ln"/><line x1="690" y1="176" x2="690" y2="206" class="ln"/>
+        <rect x="20" y="206" width="220" height="60" class="box" rx="3"/>
+        <text x="130" y="230" text-anchor="middle">LM339, Kanal A</text>
+        <text x="130" y="248" text-anchor="middle" class="lab">V_motor vs. V_low, 10 k POT1</text>
+        <rect x="300" y="206" width="220" height="60" class="box" rx="3"/>
+        <text x="410" y="230" text-anchor="middle">Direktzweig</text>
+        <text x="410" y="248" text-anchor="middle" class="lab">V_motor über R3, 330 Ohm</text>
+        <rect x="580" y="206" width="220" height="60" class="box" rx="3"/>
+        <text x="690" y="230" text-anchor="middle">LM339, Kanal B</text>
+        <text x="690" y="248" text-anchor="middle" class="lab">V_high vs. V_motor, 10 k POT2</text>
+        <line x1="130" y1="266" x2="130" y2="296" class="ln"/><line x1="410" y1="266" x2="410" y2="296" class="ln"/><line x1="690" y1="266" x2="690" y2="296" class="ln"/>
+        <circle cx="130" cy="307" r="11" class="box acc"/><text x="130" y="336" text-anchor="middle" class="lab">ROT: UNTERDREHZAHL</text>
+        <circle cx="410" cy="307" r="11" class="box acc"/><text x="410" y="336" text-anchor="middle" class="lab">GRÜN: HELLIGKEIT = DREHZAHL</text>
+        <circle cx="690" cy="307" r="11" class="box acc"/><text x="690" y="336" text-anchor="middle" class="lab">GELB: ÜBERDREHZAHL</text>
+        <text x="410" y="374" text-anchor="middle" class="lab">am Ventilator eingestellt: POT1, bis Rot bei Mindestdrehzahl gerade erlischt, POT2, bis Gelb bei Höchstdrehzahl gerade angeht</text>
+      </svg>
+      <figcaption><span class="fig-num">FIG 3</span><b>Signalkette.</b> Ein gleichgerichtetes Signal, drei Anzeigen: zwei LM339-Kanäle mit über Potis eingestellten Schwellen für die rote und die gelbe Leuchte und ein Direktzweig für die grüne. Die LM339-Ausgänge sind Open-Collector, jede LED zieht daher über einen 330-Ohm-Widerstand von der Versorgung.</figcaption>
+    </figure>
+  </div>
+
+  <h2>Der Rotor</h2>
+  <div class="mv-wrap" style="margin-bottom:12px">
+    <span class="tag">interaktiv: Ziehen zum Drehen, Scrollen zum Zoomen</span>
+    <model-viewer src="../../assets/models/windmill-blade.glb" alt="3D-Modell des helixförmigen Vertikalachsen-Rotors der Turbine" camera-controls auto-rotate auto-rotate-delay="1500" rotation-per-second="20deg" environment-image="neutral" shadow-intensity="1.2" shadow-softness="0.8" exposure="0.85" camera-orbit="30deg 70deg 105%" min-camera-orbit="auto auto 50%" max-camera-orbit="auto auto 200%" interaction-prompt="none" loading="eager" style="height:460px">
+      <div slot="poster" style="height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:var(--muted)">3D-Modell wird geladen (321 KB)</div>
+    </model-viewer>
+    <span class="hint">120 x 120 x 100 mm &middot; <a href="../../assets/models/windmill-blade.stl" download>STL herunterladen</a></span>
+  </div>
+  <figcaption style="margin-bottom:44px"><span class="fig-num">FIG 4</span><b>Der helixförmige Rotor, wie modelliert.</b> Zwei über die Höhe verwundene Blätter, damit das Drehmoment über die Umdrehung gleichmäßig bleibt und die Turbine aus jeder Windrichtung von selbst anläuft. In einem Stück gedruckt, mit der Generatornabe in der Mitte.</figcaption>
+
+  <section class="tech">
+    <h2>Technische Details</h2>
+    <div class="inner">
+      <table class="spec">
+        <tr><th>Generator</th><td>Gestellter permanenterregter Generator, montiert in der Nabe eines eigenen Rotors</td></tr>
+        <tr><th>Rotor</th><td>Zweiblättrige helixförmige Vertikalachsen-Turbine und Dreibeinständer, von mir entworfen und im FDM-Verfahren gedruckt</td></tr>
+        <tr><th>Wandlung</th><td>Brückengleichrichter, vier 1N4002-Dioden, mit 10-uF-Glättungskondensator; der DC-Ausgang V_motor ist das Drehzahlsignal</td></tr>
+        <tr><th>Anzeigen</th><td>LM339 Vierfach-Komparator, zwei Kanäle genutzt: rote Unterdrehzahl-LED gegen V_low, gelbe Überdrehzahl-LED gegen V_high, beide Schwellen über 10-kOhm-Potis eingestellt; grüne LED direkt aus V_motor über 330 Ohm, Helligkeit folgt der Drehzahl</td></tr>
+        <tr><th>Versorgung</th><td>Labornetzteil für den LM339 und die Schwellen-Potis; der Chip brauchte mindestens 7 V, um sich mit diesem Signalbereich korrekt zu verhalten</td></tr>
+        <tr><th>Modellierung</th><td>Multisim vor dem Aufbau</td></tr>
+      </table>
+      <h3>Was ich verbessern würde</h3>
+      <p>Zwei Dinge haben mich auf der Werkbank Zeit gekostet. Die grüne Anzeige sollte eigentlich über einen Transistor laufen, für einen größeren Helligkeitsbereich, und ich habe diese Stufe nie richtig eingestellt bekommen; die LED läuft deshalb direkt an V_motor und leuchtet erst ab etwa 2 V. Und die Anzeigeschaltung brauchte mindestens 7 V Versorgung; ich habe sie lange mit 5 V gespeist und Phantomfehler in der Schaltung rund um den LM339 gejagt, bevor ich nachgesehen habe, was der Chip eigentlich braucht. Erst die Versorgungsspannungen durchrechnen, dann debuggen.</p>
+    </div>
+  </section>
+
+  <div class="pn">
+    <a href="rc-car-chassis.html">&larr; Zurück: RC-Auto-Chassis</a>
+    <a href="overdose-response-device.html">Weiter: Überdosis-Notfallgerät &rarr;</a>
+  </div>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/williamwotterson">LinkedIn</a> &middot; <a href="https://github.com/OtterCadGH">GitHub</a></span>
+  <span>&copy; 2026 William Otterson &middot; Austin, TX</span>
+<div style="width:100%;text-align:center;margin-top:14px"><a href="/projects/windmill-generator.html" onclick="try{localStorage.setItem('site-lang','en')}catch(e){}" style="display:inline-block;border:1px solid var(--rule);padding:6px 14px;font-size:13px;color:var(--muted)">English</a></div>
+</div></footer>
+
+
+<dialog id="contact-dlg">
+  <h3>Kontakt</h3>
+  <p class="cd-row"><span>E-Mail</span><a href="mailto:william.w.otterson@gmail.com">william.w.otterson@gmail.com</a></p>
+  <p class="cd-row"><span>Telefon</span><a href="tel:+18087405886">(808) 740 5886</a></p>
+  <p class="cd-row"><span>LinkedIn</span><a href="https://www.linkedin.com/in/williamwotterson" target="_blank" rel="noopener">in/williamwotterson</a></p>
+  <button id="contact-close" type="button">Schließen</button>
+</dialog>
+<script>
+(function(){
+  var d = document.getElementById('contact-dlg');
+  document.querySelectorAll('a[data-contact]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); d.showModal(); });
+  });
+  document.getElementById('contact-close').addEventListener('click', function(){ d.close(); });
+  d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+})();
+</script>
+<script data-goatcounter="https://ottercad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
